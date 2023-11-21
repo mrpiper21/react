@@ -1,33 +1,19 @@
-import { useState } from "react"
+import ItemaList from './ItemaList';
 
-const content = () => {
-  let Names = ['Bob', 'Prince', 'Yaw']
-  let arr
-  for(let i=0; i<Names.length; i++){
-    arr = Names[i]
-  }
-
-  const [name, setName] = useState('Brenda')
-  setName(arr)
-  const handleClick = () =>{
-    console.log('Clicked')
-  }
-  const handleClick2 = (name) =>{
-    console.log(`${name} was clicked`)
-  }
-  const handleClick3 = (e) =>{
-    console.log(e)
-  }
+const Content = ({ items, handleCheck, handleDelete }) => {
   return (
     <main>
-      <p>
-        Hello {arr}
-      </p>
-      <button onClick={handleClick()}>click</button>
-      <button onClick={handleClick2(name)}>click</button>
-      <button onClick={(e) =>handleClick3(e)}>click</button>
+      {items.length ? (
+        <ItemaList 
+          items={items}
+          handleCheck={handleCheck}
+          handleDelete={handleDelete}
+        />
+        ) : (
+          <p style={{ marginTop: '2rem '}}> Your list is empty.</p>
+        )}
     </main>
-  )
-}
+  );
+};
 
-export default content
+export default Content;
