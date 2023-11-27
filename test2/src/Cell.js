@@ -1,5 +1,3 @@
-
-
 const Cell = ({ cellData }) => {
   return (
     <td>
