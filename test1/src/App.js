@@ -105,7 +105,7 @@ const App = () => {
       <main>
         {isLoading && <p>Loading Items...s</p>}
         {fetchError && <p style={{ color: "red" }}>{ `Error: ${fetchError}`}</p>}
-        {!fetchError && !isLoading && <Content 
+        {!fetchError && !isLoading && <Content
           items={items.filter(item => ((item.item).toLowerCase()).includes
             (search.toLocaleLowerCase()))}
           handleCheck={handleCheck}
