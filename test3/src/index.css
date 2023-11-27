@@ -1,5 +1,5 @@
 * {
-  background-color: aqua;
+  background-color: #ed9a34fd;
 }
 
 body {
@@ -17,4 +17,9 @@ code {
 }
 .paragraph {
   color: darkblue;
+}
+
+.background {
+  background-color: limegreen;
+  size: 33px * 33px;
 }
