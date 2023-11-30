@@ -11,3 +11,100 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  background-color: rgb(8, 8, 82);
+  padding: 0.5rem;
+  margin-top: -1rem
+
+}
+
+.logo {
+  height: 3rem;
+  margin-right: 1rem;
+}
+
+.prop {
+  margin: 0 1rem;
+  color: aliceblue;
+}
+
+.prop {
+  display: block;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: aliceblue;
+}
+
+.prop:hover,
+.prop:focus {
+  background: whitesmoke;
+  cursor: pointer;
+  color: black;
+}
+
+form {
+  background-color: white; /* Updated background color */
+  padding: 1.5rem 1.5rem 1rem; /* Updated padding */
+  width: 300px;
+  margin: 8rem auto 0; /* Updated margin */
+  border: 1px solid #ccc; /* Fixed border style */
+}
+
+/* Style the input fields */
+input {
+  display: block;
+  margin: 10px 0;
+  border-radius: 0.3rem;
+  padding: 0.7rem;
+  width: calc(100% - 2px); /* Adjusted width to include border width */
+  border: 1px solid #ccc;
+  color: #333;
+}
+
+/* Style the login button */
+button {
+  max-width: fit-content; /* Updated max-width value */
+  padding: 0.5rem 1.5rem; /* Updated padding */
+  margin-left: 4.7rem;
+  max-height: 2.5rem; /* Modified max-height value */
+  background-color: rgb(8, 8, 82);
+  border-style: none;
+  border-radius: 0.5rem;
+  column-rule-color: aliceblue;
+}
+
+/* Style the "Adims Only!" text */
+.add {
+  color: red;
+  margin-top: 1rem; /* Updated margin property */
+  font-size: small;
+  font-family: sans-serif;
+}
+
+.adminlogo {
+  max-height: 100px; /* Updated max-height value to fit into the form */
+  margin: 0 auto; /* Center the image within the form */
+  display: block; /* Added display property to center the image */
+  background: white;
+}
+
+div {
+  margin-top: 1rem;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  background-color: rgb(8, 8, 82);
+  padding: 1rem;
+}
