@@ -2,7 +2,9 @@
 
 const Posts = () => {
   return (
-    <div>Posts</div>
+    <body>
+      <h1>Posts Page</h1>
+    </body>
   )
 }
 

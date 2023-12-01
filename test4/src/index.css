@@ -22,9 +22,16 @@ nav {
   display: flex;
   align-items: center;
   background-color: rgb(8, 8, 82);
-  padding: 0.5rem;
-  margin-top: -1rem
+  padding: 1.5rem;
+  padding-left: 18rem;
+  border-radius: 0 0 1rem 1rem;
+  margin-top: -1rem;
+  position: sticky;
+}
 
+
+.csize {
+  min-height: 500vh;
 }
 
 .logo {
@@ -33,7 +40,7 @@ nav {
 }
 
 .prop {
-  margin: 0 1rem;
+  margin: 0 2.5rem;
   color: aliceblue;
 }
 
@@ -50,14 +57,17 @@ nav {
   background: whitesmoke;
   cursor: pointer;
   color: black;
+  /* font-size: 1.4rem; */
+  position: relative;
 }
 
 form {
   background-color: white; /* Updated background color */
   padding: 1.5rem 1.5rem 1rem; /* Updated padding */
-  width: 300px;
-  margin: 8rem auto 0; /* Updated margin */
+  width: 400px;
+  margin: 5rem auto 0; /* Updated margin */
   border: 1px solid #ccc; /* Fixed border style */
+  position: relative;
 }
 
 /* Style the input fields */
@@ -83,6 +93,9 @@ button {
   column-rule-color: aliceblue;
 }
 
+body {
+  min-height: 500vh;;
+}
 /* Style the "Adims Only!" text */
 .add {
   color: red;

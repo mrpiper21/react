@@ -1,7 +1,9 @@
 
 const Sermons = () => {
   return (
-    <div>Sermons</div>
+    <div className="csize">
+        <h1>Sermon</h1>
+    </div>
   )
 }
 

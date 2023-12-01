@@ -16,15 +16,14 @@ root.render(<App />
 function App() {
   return (
     <Router>
-      <header>
-        <nav >
-          <Link to='/' className='prop'>Home</Link>
-          <Link to='/Posts' className='prop'>Posts</Link>
-          <Link to='/events' className='prop'>Events</Link>
-          <Link to='/sermons' className='prop'>Sermons</Link>
-          <Link to='/about' className='prop'>About</Link>
-        </nav>
-      </header>
+      <nav >
+        <img src="./logo3.png" alt="img" />
+        <Link to='/' className='prop'>Home</Link>
+        <Link to='/Posts' className='prop'>Posts</Link>
+        <Link to='/events' className='prop'>Events</Link>
+        <Link to='/sermons' className='prop'>Sermons</Link>
+        <Link to='/about' className='prop'>About</Link>
+      </nav>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/posts" element={<Posts />} />
