@@ -7,7 +7,8 @@ import About from '../src/pages/About'
 import Posts from './pages/Posts';
 import Events from './pages/Events';
 import Sermons from './pages/Sermons';
-import Nav from './pages/Nav';
+// import Nav from './pages/Nav'
+import  logo from './pages/Images/logo3.png'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />
@@ -17,7 +18,9 @@ function App() {
   return (
     <Router>
       <nav >
-        <img src="./logo3.png" alt="img" />
+        <img src={logo} alt="images " className='logo'/>
+        <h2 className='banner-font'>Prebytarian Church of Ghana</h2>
+        <p className='logo-font'>Logos Congregation</p>
         <Link to='/' className='prop'>Home</Link>
         <Link to='/Posts' className='prop'>Posts</Link>
         <Link to='/events' className='prop'>Events</Link>

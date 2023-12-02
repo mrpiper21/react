@@ -1,8 +1,8 @@
-import Game from "./Game";
+import Board from "./Board";
 
 function App() {
   return (
-    <Game />
+    <Board />
   );
 }
 

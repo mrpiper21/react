@@ -37,11 +37,37 @@ nav {
 .logo {
   height: 3rem;
   margin-right: 1rem;
+  left: 3rem;
+  position: absolute;
+  min-block-size: 4rem;
+  background-color: white;
+  border-radius: 0.5rem;
+}
+
+.logo-font {
+  font-size: 1rem;
+  font-style: italic;
+  color: red;
+  position: absolute;
+  top: 3rem;
+  margin-left: -10rem;
+  bottom: -10px;
+}
+
+.banner-font {
+  color: white;
+  top: 1rem;
+  position: absolute;
+  left: 8rem;
+  margin-right: 3rem;
+  font-style:initial;
 }
 
 .prop {
   margin: 0 2.5rem;
   color: aliceblue;
+  left: 10rem;
+  position: relative;
 }
 
 .prop {
