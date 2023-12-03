@@ -1,149 +1,132 @@
-body {
+/* Reset default styles and apply a modern font to the whole document */
+html {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%; /* Set height to 100% for responsiveness */
 }
 
+/* Apply a monospace font to code elements */
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
+/* Reset default styles for all elements */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+@media (min-width: 410px) and (max-width: 415px) {
+  /* Adjust the styles for elements within this screen size range */
+  nav {
+    padding: 0.8rem; /* Example: Decrease padding for smaller screens within the specified range */
+  }
+
+  .logo {
+    height: 2.5rem; /* Example: Adjust the height of the logo for better fitting */
+  }
+
+  .prop {
+    margin: 0 1rem; /* Example: Adjust the margin for navigation links */
+  }
+
+  /* Add any other necessary adjustments for elements within this specific screen size range */
+}
+
+/* Style the navigation bar to be sticky and visually pleasing */
 nav {
   display: flex;
   align-items: center;
+  justify-content: space-between; /* Add space between items */
   background-color: rgb(8, 8, 82);
-  padding: 1.5rem;
-  padding-left: 18rem;
-  border-radius: 0 0 1rem 1rem;
-  margin-top: -1rem;
+  padding: 1rem;
   position: sticky;
+  top: 0;
+  z-index: 100; /* Ensure the navigation bar stays on top */
 }
 
-
-.csize {
-  min-height: 500vh;
-}
-
+/* Style the logo within the navigation bar */
 .logo {
   height: 3rem;
   margin-right: 1rem;
-  left: 3rem;
-  position: absolute;
-  min-block-size: 4rem;
   background-color: white;
   border-radius: 0.5rem;
 }
 
-.logo-font {
-  font-size: 1rem;
-  font-style: italic;
-  color: red;
-  position: absolute;
-  top: 3rem;
-  margin-left: -10rem;
-  bottom: -10px;
-}
-
-.banner-font {
-  color: white;
-  top: 1rem;
-  position: absolute;
-  left: 8rem;
-  margin-right: 3rem;
-  font-style:initial;
-}
-
+/* Style the navigation links */
 .prop {
-  margin: 0 2.5rem;
+  margin: 0 1rem; /* Adjust spacing */
   color: aliceblue;
-  left: 10rem;
-  position: relative;
-}
-
-.prop {
-  display: block;
-  border-radius: 2rem;
-  padding: 0.5rem 1rem;
   text-decoration: none;
-  color: aliceblue;
+  transition: color 0.3s; /* Smooth color transition */
 }
 
 .prop:hover,
 .prop:focus {
-  background: whitesmoke;
-  cursor: pointer;
-  color: black;
-  /* font-size: 1.4rem; */
-  position: relative;
+  color: whitesmoke; /* Change color on hover/focus */
 }
 
+/* Style the form to have a white background and proper spacing */
 form {
-  background-color: white; /* Updated background color */
-  padding: 1.5rem 1.5rem 1rem; /* Updated padding */
-  width: 400px;
-  margin: 5rem auto 0; /* Updated margin */
-  border: 1px solid #ccc; /* Fixed border style */
-  position: relative;
+  background-color: white;
+  padding: 1.5rem;
+  max-width: 400px;
+  margin: 2rem auto; /* Adjusted margin for better spacing */
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Added a subtle shadow for depth */
 }
 
-/* Style the input fields */
+/* Style the input fields with borders and padding */
 input {
   display: block;
   margin: 10px 0;
   border-radius: 0.3rem;
   padding: 0.7rem;
-  width: calc(100% - 2px); /* Adjusted width to include border width */
+  width: 100%;
   border: 1px solid #ccc;
   color: #333;
 }
 
-/* Style the login button */
+/* Style the login button with a unique color and border */
 button {
-  max-width: fit-content; /* Updated max-width value */
-  padding: 0.5rem 1.5rem; /* Updated padding */
-  margin-left: 4.7rem;
-  max-height: 2.5rem; /* Modified max-height value */
+  max-width: fit-content;
+  padding: 0.5rem 1.5rem;
+  margin: 1rem auto; /* Center the button horizontally */
+  display: block; /* Ensure the button takes the full width */
   background-color: rgb(8, 8, 82);
-  border-style: none;
+  border: none;
   border-radius: 0.5rem;
-  column-rule-color: aliceblue;
+  color: aliceblue;
+  cursor: pointer;
 }
 
-body {
-  min-height: 500vh;;
-}
 /* Style the "Adims Only!" text */
 .add {
   color: red;
-  margin-top: 1rem; /* Updated margin property */
+  margin-top: 1rem;
   font-size: small;
   font-family: sans-serif;
+  text-align: center; /* Center the text */
 }
 
+/* Style the admin logo to fit inside the form */
 .adminlogo {
-  max-height: 100px; /* Updated max-height value to fit into the form */
-  margin: 0 auto; /* Center the image within the form */
-  display: block; /* Added display property to center the image */
-  background: white;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto; /* Center the image inside the form */
+  border-radius: 0.5rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Added a subtle shadow */
 }
 
+/* Style the rest of the content within the page */
 div {
   margin-top: 1rem;
-}
-
-.navbar {
-  display: flex;
-  align-items: center;
-  background-color: rgb(8, 8, 82);
-  padding: 1rem;
 }

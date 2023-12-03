@@ -1,9 +1,9 @@
 
 
-const Posts = () => {
+const Posts = ({ backendDate }) => {
   return (
     <body>
-      <h1>Posts Page</h1>
+      <h1>{backendDate}</h1>
     </body>
   )
 }
