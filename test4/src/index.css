@@ -1,4 +1,5 @@
-body {
+/* Reset default styles and apply a modern font to the whole document */
+html {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -7,44 +8,57 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Apply a monospace font to code elements */
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
+/* Reset default styles for all elements */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Style the navigation bar to be sticky and visually pleasing */
 nav {
   display: flex;
-  align-items: center;
+  align-items:center;
   background-color: rgb(8, 8, 82);
   padding: 1.5rem;
-  padding-left: 18rem;
-  border-radius: 0 0 1rem 1rem;
-  margin-top: -1rem;
-  position: sticky;
-}
-
-
-.csize {
-  min-height: 500vh;
+  position: relative;
+  top: -1rem;
+  z-index: 100; /* Ensure the navigation bar stays on top */
+  height: 20vh;
 }
 
 .logo {
-  height: 3rem;
-  margin-right: 1rem;
-  left: 1.1rem;
-  position: absolute;
-  min-block-size: 4rem;
-  background-color: white;
-  border-radius: 0.5rem;
-  width: 4.5rem;
+  height: 20vh;
+  width: 40vw;
+  position: fixed;
+  margin-left: 50rem;
+  right: 0.5px;
 }
 
+/* For smaller screens, adjust the navigation bar for better responsiveness */
+@media (max-width: 768px) {
+  nav {
+    padding: 1rem; /* Decrease padding for smaller screens */
+    flex-direction: column; /* Stack the navigation items vertically */
+    align-items: flex-start; /* Adjust alignment for vertical layout */
+  }
+
+  .logo {
+    margin: 0 auto 1rem; /* Center the logo in the vertical layout */
+  }
+
+  .prop {
+    margin: 0.5rem 0; /* Add spacing between navigation links */
+  }
+}
+
+/* Style the logo text within the navigation bar */
 .logo-font {
   font-size: 1rem;
   font-style: italic;
@@ -55,28 +69,31 @@ nav {
   bottom: -10px;
 }
 
+/* Style the banner text within the navigation bar */
 .banner-font {
   color: white;
   top: 1rem;
   position: absolute;
   left: 7rem;
   margin-right: 3rem;
-  font-style:initial;
+  font-style: initial;
 }
 
+/* Style the navigation links */
 .prop {
   margin: 0 2.5rem;
   color: aliceblue;
-  left: 10rem;
   position: relative;
 }
 
+/* Apply a consistent style for links */
 .prop {
   display: block;
   border-radius: 2rem;
   padding: 0.5rem 1rem;
   text-decoration: none;
   color: aliceblue;
+  transition: background 0.3s, color 0.3s;  /* Added transitions for smoother hover effect */
 }
 
 .prop:hover,
@@ -84,67 +101,80 @@ nav {
   background: whitesmoke;
   cursor: pointer;
   color: black;
-  /* font-size: 1.4rem; */
-  position: relative;
 }
 
+/* Style the form to have a white background and proper spacing */
 form {
-  background-color: white; /* Updated background color */
-  padding: 1.5rem 1.5rem 1rem; /* Updated padding */
-  width: 400px;
-  margin: 5rem auto 0; /* Updated margin */
-  border: 1px solid #ccc; /* Fixed border style */
+  background-color: white;
+  padding: 1.5rem;
+  width: 90%; /* Adjusted width to be responsive */
+  max-width: 400px; /* Added maximum width for larger screens */
+  margin: 5rem auto 1rem; /* Adjusted margin for better spacing */
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
   position: relative;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Added a subtle shadow for depth */
 }
 
-/* Style the input fields */
+/* Style the input fields with borders and padding */
 input {
   display: block;
   margin: 10px 0;
   border-radius: 0.3rem;
   padding: 0.7rem;
-  width: calc(100% - 2px); /* Adjusted width to include border width */
+  width: 100%;
   border: 1px solid #ccc;
   color: #333;
 }
 
-/* Style the login button */
+/* Style the login button with a unique color and border */
 button {
-  max-width: fit-content; /* Updated max-width value */
-  padding: 0.5rem 1.5rem; /* Updated padding */
-  margin-left: 4.7rem;
-  max-height: 2.5rem; /* Modified max-height value */
+  max-width: fit-content;
+  padding: 0.5rem 1.5rem;
+  margin-left: 50%;
+  transform: translateX(-50%); /* Center the button horizontally */
+  max-height: 2.5rem;
   background-color: rgb(8, 8, 82);
-  border-style: none;
+  border: none;
   border-radius: 0.5rem;
-  column-rule-color: aliceblue;
+  color: aliceblue;
+  cursor: pointer;
 }
 
-body {
-  min-height: 500vh;;
-}
 /* Style the "Adims Only!" text */
 .add {
   color: red;
-  margin-top: 1rem; /* Updated margin property */
+  margin-top: 1rem;
   font-size: small;
   font-family: sans-serif;
 }
 
+/* Style the admin logo to fit inside the form */
 .adminlogo {
-  max-height: 100px; /* Updated max-height value to fit into the form */
-  margin: 0 auto; /* Center the image within the form */
-  display: block; /* Added display property to center the image */
-  background: white;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto; /* Center the image inside the form */
+  border-radius: 0.5rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Added a subtle shadow */
 }
 
-div {
+/* Style the rest of the content within the page */
+/* div {
   margin-top: 1rem;
-}
+} */
 
+/* Style the footer navigation bar */
 .navbar {
   display: flex;
   align-items: center;
   background-color: rgb(8, 8, 82);
   padding: 1rem;
+}
+
+.bs {
+  border-radius: 0.5rem;
+  color: blue;
+  background-color: grey;
+  font-style: italic;
 }
