@@ -1,6 +1,6 @@
 function About () {
     return (
-      <div className="csize">
+      <div>
         <h1>About us</h1>
       </div>
     )

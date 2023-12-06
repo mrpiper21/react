@@ -1,45 +1,44 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
+import { FaSignInAlt } from 'react-icons/fa'
+import logo from './pages/Images/logo1.jpg'
 import './index.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Home from '../src/pages/Home'
-import About from '../src/pages/About'
+import Home from './pages/Home';
+import About from './pages/About';
 import Posts from './pages/Posts';
 import Events from './pages/Events';
 import Sermons from './pages/Sermons';
-// import Nav from './pages/Nav'
-import  logo from './pages/Images/Welcome1a.jpg'
+import Admin from './pages/Admin';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />
-);
+ReactDOM.render(<App />, document.getElementById('root'));
 
 function App() {
-
   return (
     <Router>
-      <header>
-        <nav >
-          <img src={logo} alt="images " className='logo'/>
-          {/* <h2 className='banner-font'>Prebytarian Church of Ghana</h2>
-          <p className='logo-font'>Logos Congregation</p> */}
-          <div className='prop'>
-            <Link to='/'>Home</Link>
-            <Link to='/Posts'>Posts</Link>
-            <Link to='/events'>Events</Link>
-            <Link to='/sermons'>Sermons</Link>
-            <Link to='/about'>About</Link>
-          </div>
+      <header className="nav-bar">
+        <nav>
+          <img src={logo} alt="img" className='logo'/>
+          <Link to="/admin" className='admin-panel'><FaSignInAlt /></Link>
+          <Link to="/" className="prop">Home</Link>
+          <Link to="/posts" className="prop">Posts</Link>
+          <Link to="/events" className="prop">Events</Link>
+          <Link to="/sermons" className="prop">Sermons</Link>
+          <Link to="/about" className="prop">About</Link>
         </nav>
       </header>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/posts" element={<Posts />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/sermons" element={<Sermons />} />
-        <Route path="/About" element={<About />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/posts" element={<Posts />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/sermons" element={<Sermons />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/admin" element={<Admin />} />
+        </Routes>
+      </main>
     </Router>
   )
 }
 
+export default App;

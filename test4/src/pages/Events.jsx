@@ -1,9 +1,29 @@
 
 const Events = () => {
   return (
-    <body>
-      <h1>Events page</h1>
-    </body>
+    <div>
+      <p>EVENTS PAGE</p>
+      <p>EVENTS PAGE</p>
+      <p>EVENTS PAGE</p>
+      <p>EVENTS PAGE</p>
+      <p>EVENTS PAGE</p>
+      <p>EVENTS PAGE</p>
+      <p>EVENTS PAGE</p>
+      <p>EVENTS PAGE</p>
+      <p>EVENTS PAGE</p>
+      <p>EVENTS PAGE</p>
+      <p>EVENTS PAGE</p>
+      <p>EVENTS PAGE</p>
+      <p>EVENTS PAGE</p>
+      <p>EVENTS PAGE</p>
+      <p>EVENTS PAGE</p>
+      <p>EVENTS PAGE</p>
+      <p>EVENTS PAGE</p>
+      <p>EVENTS PAGE</p>
+      <p>EVENTS PAGE</p>
+      <p>EVENTS PAGE</p>
+      <p>EVENTS PAGE</p>
+    </div>
   )
 }
 

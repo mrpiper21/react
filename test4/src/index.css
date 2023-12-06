@@ -1,65 +1,120 @@
-/* Reset default styles and apply a modern font to the whole document */
-html {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* Apply a monospace font to code elements */
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-/* Reset default styles for all elements */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  display: flex;
+  flex-direction: column; /* Set body as a flex container with a vertical layout */
+  min-height: 100vh;
+  background-color: #fff;
+  margin: 0;
+}
+
 /* Style the navigation bar to be sticky and visually pleasing */
 nav {
-  display: flex;
-  align-items:center;
-  background-color: rgb(8, 8, 82);
-  padding: 1.5rem;
-  position: relative;
-  top: -1rem;
-  z-index: 100; /* Ensure the navigation bar stays on top */
-  height: 20vh;
-}
-
-.logo {
-  height: 20vh;
-  width: 40vw;
   position: fixed;
-  margin-left: 50rem;
-  right: 0.5px;
+  text-align: center;
+  left: 0.02em;
+  min-width: 98.8vw;
+  top: 0;
+  z-index: 100;
+  background-color: rgb(8, 8, 82);
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
 }
 
-/* For smaller screens, adjust the navigation bar for better responsiveness */
-@media (max-width: 768px) {
-  nav {
-    padding: 1rem; /* Decrease padding for smaller screens */
-    flex-direction: column; /* Stack the navigation items vertically */
-    align-items: flex-start; /* Adjust alignment for vertical layout */
-  }
-
-  .logo {
-    margin: 0 auto 1rem; /* Center the logo in the vertical layout */
-  }
-
-  .prop {
-    margin: 0.5rem 0; /* Add spacing between navigation links */
-  }
+.nav-bar {
+  transition: all 0.3s ease;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  transition-property: all;
 }
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0 23px;
+}
+
+/* Style the main content */
+main {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  width: 100%; /* Ensure content fills the width */
+  flex: 1; /* Allow the main content to take remaining vertical space */
+}
+
+/* main {
+  margin-top: 60px;
+} */
+
+main h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+main p {
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* Style the navigation bar to be sticky and visually pleasing */
+nav {
+  position: sticky;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  /* border-radius: 8px; */
+  background-color: rgb(8, 8, 82);
+  width: 100vw;
+  height: 5vw;
+}
+
+nav a {
+  position: relative;
+  display: inline-block;
+  font-weight: 500;
+  font-size: 1em;
+  color: #fff;
+  text-decoration: none;
+  padding: 0 23px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* nav span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 95px;
+  height: 100%;
+  background: linear-gradient(45deg, #4f1919, #ff3333);
+  border-radius: 8px;
+} */
+.logo {
+  height: 5vw;
+  width: 20vw;
+  position: absolute;
+  left: 0;
+}
+
 
 /* Style the logo text within the navigation bar */
-.logo-font {
+/* .logo-font {
   font-size: 1rem;
   font-style: italic;
   color: red;
@@ -67,19 +122,19 @@ nav {
   top: 3rem;
   margin-left: -11rem;
   bottom: -10px;
-}
+} */
 
 /* Style the banner text within the navigation bar */
-.banner-font {
+/* .banner-font {
   color: white;
   top: 1rem;
   position: absolute;
   left: 7rem;
   margin-right: 3rem;
   font-style: initial;
-}
+} */
 
-/* Style the navigation links */
+/* Style the navigation links
 .prop {
   margin: 0 2.5rem;
   color: aliceblue;
@@ -89,13 +144,14 @@ nav {
 /* Apply a consistent style for links */
 .prop {
   display: block;
+  margin: 1em;
   border-radius: 2rem;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 2rem;
   text-decoration: none;
   color: aliceblue;
-  transition: background 0.3s, color 0.3s;  /* Added transitions for smoother hover effect */
+  transition: background 0.3s, color 0.3s;
+  float: left;
 }
-
 .prop:hover,
 .prop:focus {
   background: whitesmoke;
@@ -106,7 +162,7 @@ nav {
 /* Style the form to have a white background and proper spacing */
 form {
   background-color: white;
-  padding: 1.5rem;
+  padding: 1rem;
   width: 90%; /* Adjusted width to be responsive */
   max-width: 400px; /* Added maximum width for larger screens */
   margin: 5rem auto 1rem; /* Adjusted margin for better spacing */
@@ -128,15 +184,17 @@ input {
 }
 
 /* Style the login button with a unique color and border */
+
+
 button {
-  max-width: fit-content;
-  padding: 0.5rem 1.5rem;
-  margin-left: 50%;
-  transform: translateX(-50%); /* Center the button horizontally */
-  max-height: 2.5rem;
+  max-width: fit-content; /* Updated max-width value */
+  padding: 0.9rem 6rem; /* Updated padding */
+  margin-left: 5em;
+  max-height: 2.5rem; /* Modified max-height value */
   background-color: rgb(8, 8, 82);
-  border: none;
+  border-style: none;
   border-radius: 0.5rem;
+  column-rule-color: aliceblue;
   color: aliceblue;
   cursor: pointer;
 }
@@ -149,14 +207,24 @@ button {
   font-family: sans-serif;
 }
 
+.admindiv {
+  top: 1rem;
+  margin-top: -5rem;
+  position: relative;
+}
+
 /* Style the admin logo to fit inside the form */
 .adminlogo {
   max-width: 100%;
-  height: auto;
+  height: 15rem;
   display: block;
-  margin: 1rem auto; /* Center the image inside the form */
+  margin: auto; /* Center the image inside the form */
   border-radius: 0.5rem;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Added a subtle shadow */
+}
+
+.admin-panel {
+  left: 60rem;
 }
 
 /* Style the rest of the content within the page */
@@ -165,16 +233,16 @@ button {
 } */
 
 /* Style the footer navigation bar */
-.navbar {
+/* .navbar {
   display: flex;
   align-items: center;
   background-color: rgb(8, 8, 82);
   padding: 1rem;
-}
+} */
 
 .bs {
   border-radius: 0.5rem;
-  color: blue;
-  background-color: grey;
+  color: white;
+  background-color: blue;
   font-style: italic;
 }
