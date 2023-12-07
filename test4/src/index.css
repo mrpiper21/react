@@ -16,6 +16,7 @@ body {
   display: flex;
   flex-direction: column; /* Set body as a flex container  a vertical layout */
   flex-wrap: wrap;
+  overflow: scroll;
   min-height: 100vh;
   background-color: rgb(245, 243, 238);
   margin: 0;
@@ -66,13 +67,15 @@ body {
 .left-nav {
   background-color: wheat;
   border: grey solid 0.1rem;
-  width: 21vw;
-  height: 100vh;
-  top: 4.1rem;
+  width: 33.15vw;
+  min-height: 100vh;
+  height: max-content;
+  top: 5.6rem;
   margin-left: -14rem;
-  position: relative;
+  position: absolute;
   flex-shrink: 2;
   align-items: center;
+  /* overflow: scroll; */
 }
 
 .logo {
@@ -92,6 +95,20 @@ body {
   left: 72%;
   color: red;
 }
+
+main {
+  bottom: 44rem;
+  right: 19rem;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  max-width: 100px;
+  margin: 0 auto;
+  padding: 20px;
+  /* width: 100%; Ensure content fills the width */
+  flex: 1; /* Allow the main content to take remaining vertical space */
+}
+
 
 /* .top-nav {
   top: 0;
@@ -119,31 +136,18 @@ body {
 } */
 
 /* Style the main content */
-main {
-  bottom: 33.4rem;
-  right: 19rem;
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  max-width: 100px;
-  margin: 0 auto;
-  padding: 20px;
-  width: 100%; /* Ensure content fills the width */
-  flex: 1; /* Allow the main content to take remaining vertical space */
-}
-
 /* main {
   margin-top: 60px;
 } */
 
-main h1 {
+/* main h1 {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
 main p {
   line-height: 1.6;
   margin-bottom: 1.5rem;
-}
+} */
 
 /* Style the navigation bar to be sticky and visually pleasing */
 
@@ -166,14 +170,16 @@ main p {
   z-index: 1;
 } */
 
-div {
+.main-pages {
   /* margin-top: 2rem; */
-  top: 3px;
+  margin-top: 50rem;
   /* margin-inline: auto; */
   width: 70vw;
-  left: 7rem;
+  left: 0;
+  margin-left: -3rem;
   position: absolute;
   flex-flow: wrap;
+  /* overflow: scroll; */
 }
 
 /* nav span {
@@ -218,11 +224,13 @@ div {
 
 /* Style the form to have a white background and proper spacing */
 form {
-  top: -1rem;
+  right: 4rem;
+  bottom: 30rem;
   background-color: white;
   padding: 1rem;
+  min-height: 60vh;
   width: 90%; /* Adjusted width to be responsive */
-  max-width: 400px; /* Added maximum width for larger screens */
+  max-width: 600px; /* Added maximum width for larger screens */
   margin: 5rem auto 1rem; /* Adjusted margin for better spacing */
   border: 1px solid #ccc;
   border-radius: 0.5rem;
@@ -266,8 +274,9 @@ button {
 }
 
 .admindiv {
-  top: 1rem;
-  margin-top: -5rem;
+  width: 50vw;
+  top: 80rem;
+  margin-top: 0;
   position: relative;
 }
 

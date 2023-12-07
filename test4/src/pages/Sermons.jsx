@@ -1,7 +1,7 @@
 
 const Sermons = () => {
   return (
-    <div>
+    <div className="main-pages">
       <h1>Sermon</h1>
     </div>
   )
