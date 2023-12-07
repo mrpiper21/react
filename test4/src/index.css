@@ -14,25 +14,95 @@ html {
 
 body {
   display: flex;
-  flex-direction: column; /* Set body as a flex container with a vertical layout */
+  flex-direction: column; /* Set body as a flex container  a vertical layout */
+  flex-wrap: wrap;
   min-height: 100vh;
-  background-color: #fff;
+  background-color: rgb(245, 243, 238);
   margin: 0;
 }
 
 /* Style the navigation bar to be sticky and visually pleasing */
 .top-nav {
-  width: 100%;
-  position: sticky;
+  box-shadow: 0 0 10px rgb(8, 8, 82);
+  margin: 0px 16px 0px 2px;
+  width: 100vw;
+  height: 11.3vh;
   top: 0;
+  left: 21%;
   z-index: 100;
+  float:inherit;
+  overflow: hidden;
+  /* flex-flow: row wrap; */
+  flex: 1 1 50%;
   display: flex;
-  justify-content: space-between;
+  position: fixed;
   align-items: center;
-  background-color: rgb(8, 8, 82);
-  height: 50px;
-  padding: 0 20px;
+  background-color: rgb(25, 25, 119);
+  /* padding: 0 20px; */
 }
+
+/* Apply a consistent style for links */
+.prop {
+  left: 5rem;
+  position: relative;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin-right: 2.5rem;
+  border-radius: 2rem;
+  padding: 0.5rem 2.5rem;
+  text-decoration: none;
+  color: aliceblue;
+  transition: background 0.3s, color 0.3s;
+  float: left;
+}
+.prop:hover,
+.prop:focus {
+  background: wheat;
+  cursor: pointer;
+  color: black;
+}
+
+.left-nav {
+  background-color: wheat;
+  border: grey solid 0.1rem;
+  width: 21vw;
+  height: 100vh;
+  top: 4.1rem;
+  margin-left: -14rem;
+  position: relative;
+  flex-shrink: 2;
+  align-items: center;
+}
+
+.logo {
+  height: 11.3vh;
+  width: 21vw;
+  flex-shrink: 2;
+  box-shadow: 0 0 10px rgb(8, 8, 82);
+  z-index: 100;
+  position: fixed;
+  top: 0px;
+  left: 0;
+  /* right: 20rem; */
+}
+
+.admin-panel {
+  position: relative;
+  left: 72%;
+  color: red;
+}
+
+/* .top-nav {
+  top: 0;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  background-color: rgb(25, 25, 119);
+  width: 100vw;
+  height: 11.3vh;
+} */
 
 /* .nav-bar {
   transition: all 0.3s ease;
@@ -42,18 +112,20 @@ body {
   transition-property: all;
 } */
 
-.top-nav::a {
+/* .top-nav::a {
   color: #fff;
   text-decoration: none;
   padding: 0 23px;
-}
+} */
 
 /* Style the main content */
 main {
+  bottom: 33.4rem;
+  right: 19rem;
   position: relative;
   justify-content: center;
   align-items: center;
-  max-width: 800px;
+  max-width: 100px;
   margin: 0 auto;
   padding: 20px;
   width: 100%; /* Ensure content fills the width */
@@ -74,18 +146,13 @@ main p {
 }
 
 /* Style the navigation bar to be sticky and visually pleasing */
-.top-nav {
-  top: 0;
-  left: 0;
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items:center;
-  /* border-radius: 8px; */
-  background-color: rgb(8, 8, 82);
-  width: 100vw;
-  height: 11.3vh;
-}
+
+
+/* .top-nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 0 23px;
+} */
 
 /* .top-nav::a {
   right: 2rem;
@@ -99,20 +166,14 @@ main p {
   z-index: 1;
 } */
 
-.left-nav {
-  background-color: rgb(8, 8, 82);
-  width: 21vw;
-  height: 100vh;
-  left: 0;
-  position: fixed;
-}
-
 div {
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
+  top: 3px;
   /* margin-inline: auto; */
   width: 70vw;
-  left: 5.5rem;
-  position: relative;
+  left: 7rem;
+  position: absolute;
+  flex-flow: wrap;
 }
 
 /* nav span {
@@ -124,12 +185,7 @@ div {
   background: linear-gradient(45deg, #4f1919, #ff3333);
   border-radius: 8px;
 } */
-.logo {
-  height: 5vw;
-  width: 20vw;
-  position: absolute;
-  left: 0;
-}
+
 
 
 /* Style the logo text within the navigation bar */
@@ -160,26 +216,9 @@ div {
   position: relative;
 }
 
-/* Apply a consistent style for links */
-.prop {
-  display: block;
-  margin: 1em;
-  border-radius: 2rem;
-  padding: 0.5rem 2rem;
-  text-decoration: none;
-  color: aliceblue;
-  transition: background 0.3s, color 0.3s;
-  float: left;
-}
-.prop:hover,
-.prop:focus {
-  background: whitesmoke;
-  cursor: pointer;
-  color: black;
-}
-
 /* Style the form to have a white background and proper spacing */
 form {
+  top: -1rem;
   background-color: white;
   padding: 1rem;
   width: 90%; /* Adjusted width to be responsive */
@@ -240,12 +279,6 @@ button {
   margin: auto; /* Center the image inside the form */
   border-radius: 0.5rem;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Added a subtle shadow */
-}
-
-.admin-panel {
-  position: relative;
-  left: 60rem;
-  color: red;
 }
 
 /* Style the rest of the content within the page */
