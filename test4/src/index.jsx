@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { FaSignInAlt } from 'react-icons/fa'
-import logo from './pages/Images/logo1.jpg'
+import logo from './pages/Images/Logo4.jpg'
 import './index.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
@@ -17,7 +17,7 @@ function App() {
   return (
     <Router>
       <header className="nav-bar">
-        <nav>
+        <nav className='top-nav'>
           <img src={logo} alt="img" className='logo'/>
           <Link to="/admin" className='admin-panel'><FaSignInAlt /></Link>
           <Link to="/" className="prop">Home</Link>
@@ -25,6 +25,9 @@ function App() {
           <Link to="/events" className="prop">Events</Link>
           <Link to="/sermons" className="prop">Sermons</Link>
           <Link to="/about" className="prop">About</Link>
+        </nav>
+        <nav className='left-nav'>
+          
         </nav>
       </header>
       <main>

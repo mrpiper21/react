@@ -5,6 +5,7 @@
 }
 
 html {
+  scroll-behavior: smooth;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -20,28 +21,28 @@ body {
 }
 
 /* Style the navigation bar to be sticky and visually pleasing */
-nav {
-  position: fixed;
-  text-align: center;
-  left: 0.02em;
-  min-width: 98.8vw;
+.top-nav {
+  width: 100%;
+  position: sticky;
   top: 0;
   z-index: 100;
-  background-color: rgb(8, 8, 82);
-  height: 50px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  background-color: rgb(8, 8, 82);
+  height: 50px;
+  padding: 0 20px;
 }
 
-.nav-bar {
+/* .nav-bar {
   transition: all 0.3s ease;
   transition-duration: 0.3s;
   transition-timing-function: ease;
   transition-delay: 0s;
   transition-property: all;
-}
+} */
 
-nav a {
+.top-nav::a {
   color: #fff;
   text-decoration: none;
   padding: 0 23px;
@@ -73,19 +74,21 @@ main p {
 }
 
 /* Style the navigation bar to be sticky and visually pleasing */
-nav {
-  position: sticky;
+.top-nav {
+  top: 0;
+  left: 0;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items:center;
   /* border-radius: 8px; */
   background-color: rgb(8, 8, 82);
   width: 100vw;
-  height: 5vw;
+  height: 11.3vh;
 }
 
-nav a {
-  position: relative;
+/* .top-nav::a {
+  right: 2rem;
   display: inline-block;
   font-weight: 500;
   font-size: 1em;
@@ -94,6 +97,22 @@ nav a {
   padding: 0 23px;
   overflow: hidden;
   z-index: 1;
+} */
+
+.left-nav {
+  background-color: rgb(8, 8, 82);
+  width: 21vw;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+}
+
+div {
+  margin-top: 2rem;
+  /* margin-inline: auto; */
+  width: 70vw;
+  left: 5.5rem;
+  position: relative;
 }
 
 /* nav span {
@@ -224,7 +243,9 @@ button {
 }
 
 .admin-panel {
+  position: relative;
   left: 60rem;
+  color: red;
 }
 
 /* Style the rest of the content within the page */
