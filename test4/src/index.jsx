@@ -1,5 +1,7 @@
 import { FaSignInAlt } from 'react-icons/fa'
 import logo from './pages/Images/Logo4.jpg'
+import logo2 from './pages/Images/19_Psa.jpg'
+import Calender from './pages/Calender';
 import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
@@ -17,28 +19,34 @@ ReactDOM.render(<App />, document.getElementById('root'));
 function App() {
   return (
     <Router>
-      <Suspense fallback={<div>Loading...</div>}>
-        <header className="nav-bar">
-          <img src={logo} alt="img" className='logo'/>
-          <div className='left-nav'>
-            <h2>Left Nav</h2>
-            <h2>Left Nav</h2>
-            <h2>Left Nav</h2>
-          </div>
-          <NavBar />
-        </header>
-        <main>
+      <Suspense fallback={<p>Loading...</p>}>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/posts" element={<Posts />} />
-            <Route path="/events" element={<Events />} />
-            <Route path="/sermons" element={<Sermons />} />
-            <Route path="/about" element={<About />} />
             <Route path="/admin" element={<Admin />} />
+            <Route path="/*" element={<MainLayout />} />
           </Routes>
-        </main>
       </Suspense>
     </Router>
+  )
+}
+
+function MainLayout() {
+  return (
+    <>
+      <header className='nav-bar'>
+        <img src={logo} alt="img" className='logo'/>
+        <LefNav />
+        <NavBar />
+      </header>
+      <main>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/posts' element={<Posts />} />
+          <Route path='/events' element={<Events />} />
+          <Route path='/sermons' element={<Sermons />} />
+          <Route path='/about' element={<About />} />
+        </Routes>
+      </main>
+    </>
   )
 }
 
@@ -55,4 +63,11 @@ function NavBar() {
   );
 }
 
+function LefNav() {
+  return (
+    <div className='left-nav'>
+      <img src={logo2} alt="img" className='logo2'/>
+    </div>
+  )
+}
 export default App;

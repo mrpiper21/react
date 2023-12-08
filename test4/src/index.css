@@ -18,7 +18,7 @@ body {
   flex-wrap: wrap;
   overflow: scroll;
   min-height: 100vh;
-  background-color: rgb(245, 243, 238);
+  background-color: white;
   margin: 0;
 }
 
@@ -65,16 +65,17 @@ body {
 }
 
 .left-nav {
-  background-color: wheat;
+  background-color: rgb(6, 6, 81);
   border: grey solid 0.1rem;
-  width: 33.15vw;
+  width: 20.8vw;
   min-height: 100vh;
   height: max-content;
-  top: 5.6rem;
-  margin-left: -14rem;
-  position: absolute;
-  flex-shrink: 2;
-  align-items: center;
+  top: 2rem;
+  position: fixed;
+  left: 0;
+  display: flex;
+  flex-shrink: 1;
+  /* align-items: center; */
   /* overflow: scroll; */
 }
 
@@ -89,11 +90,24 @@ body {
   left: 0;
   /* right: 20rem; */
 }
+.logo2 {
+  width: 20.8vw;
+  /* min-width: 50vh; */
+  min-height: 100vh;
+  position: relative;
+  left: 0;
+  right: inherit;
+}
 
 .admin-panel {
   position: relative;
   left: 72%;
   color: red;
+}
+
+.calender {
+  color: red;
+  background-color: blue;
 }
 
 main {
@@ -172,13 +186,13 @@ main p {
 
 .main-pages {
   /* margin-top: 2rem; */
-  margin-top: 50rem;
-  /* margin-inline: auto; */
+  top: 48.5em;
+  min-height: 100vh;
+  margin-inline: auto;
   width: 70vw;
-  left: 0;
-  margin-left: -3rem;
-  position: absolute;
-  flex-flow: wrap;
+  right: 40px;
+  position: inherit;
+  /* flex-flow: wrap; */
   /* overflow: scroll; */
 }
 
@@ -224,18 +238,21 @@ main p {
 
 /* Style the form to have a white background and proper spacing */
 form {
-  right: 4rem;
-  bottom: 30rem;
   background-color: white;
   padding: 1rem;
   min-height: 60vh;
-  width: 90%; /* Adjusted width to be responsive */
-  max-width: 600px; /* Added maximum width for larger screens */
-  margin: 5rem auto 1rem; /* Adjusted margin for better spacing */
+  width: 60%; /* Adjusted width to be responsive */
+  left: 75%;
+  top: 5rem;
   border: 1px solid #ccc;
   border-radius: 0.5rem;
   position: relative;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Added a subtle shadow for depth */
+}
+.admindiv {
+  width: 50vw;
+  margin-top: 0;
+  position: absolute;
 }
 
 /* Style the input fields with borders and padding */
@@ -271,13 +288,6 @@ button {
   margin-top: 1rem;
   font-size: small;
   font-family: sans-serif;
-}
-
-.admindiv {
-  width: 50vw;
-  top: 80rem;
-  margin-top: 0;
-  position: relative;
 }
 
 /* Style the admin logo to fit inside the form */

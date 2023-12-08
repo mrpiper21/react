@@ -14,7 +14,7 @@ const Posts = () => {
   }, [])
 
   return (
-    <div>
+    <div className='post-div'>
       {Array.isArray(backendData) && backendData.map(post => (
         <h1 key={post._id} className='bs'>{post.text}</h1>
       ))}

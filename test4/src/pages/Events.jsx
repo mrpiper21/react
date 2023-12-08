@@ -1,28 +1,8 @@
-
+import Calender from "./Calender"
 const Events = () => {
   return (
     <div className="main-pages">
-      <p>EVENTS PAGE</p>
-      <p>EVENTS PAGE</p>
-      <p>EVENTS PAGE</p>
-      <p>EVENTS PAGE</p>
-      <p>EVENTS PAGE</p>
-      <p>EVENTS PAGE</p>
-      <p>EVENTS PAGE</p>
-      <p>EVENTS PAGE</p>
-      <p>EVENTS PAGE</p>
-      <p>EVENTS PAGE</p>
-      <p>EVENTS PAGE</p>
-      <p>EVENTS PAGE</p>
-      <p>EVENTS PAGE</p>
-      <p>EVENTS PAGE</p>
-      <p>EVENTS PAGE</p>
-      <p>EVENTS PAGE</p>
-      <p>EVENTS PAGE</p>
-      <p>EVENTS PAGE</p>
-      <p>EVENTS PAGE</p>
-      <p>EVENTS PAGE</p>
-      <p>EVENTS PAGE</p>
+      <Calender className="calender"/>
     </div>
   )
 }
