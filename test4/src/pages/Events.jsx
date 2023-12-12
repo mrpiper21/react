@@ -1,9 +1,12 @@
 import Calender from "./Calender"
 const Events = () => {
   return (
-    <div className="main-pages">
+    <>
       <Calender className="calender"/>
-    </div>
+      <div className="main-pages">
+        <h1>Event page</h1>
+      </div>
+    </>
   )
 }
 

@@ -34,7 +34,7 @@ function MainLayout() {
     <>
       <header className='nav-bar'>
         <img src={logo} alt="img" className='logo'/>
-        <LefNav />
+        {/* <LefNav /> */}
         <NavBar />
       </header>
       <main>
@@ -63,11 +63,11 @@ function NavBar() {
   );
 }
 
-function LefNav() {
-  return (
-    <div className='left-nav'>
-      <img src={logo2} alt="img" className='logo2'/>
-    </div>
-  )
-}
+// function LefNav() {
+//   return (
+//     <div className='left-nav'>
+//       <img src={logo2} alt="img" className='logo2'/>
+//     </div>
+//   )
+// }
 export default App;

@@ -108,6 +108,16 @@ body {
 .calender {
   color: red;
   background-color: blue;
+  border-right: 1px solid black;
+  width: 20.8vw;
+  min-height: 100vh;
+  height: max-content;
+  top: 2rem;
+  position: fixed;
+  left: 0;
+  display: flex;
+  flex-shrink: 1;
+  /* box-shadow: 7px rgba(0, 0, 0, 0.1); */
 }
 
 main {
@@ -123,67 +133,6 @@ main {
   flex: 1; /* Allow the main content to take remaining vertical space */
 }
 
-
-/* .top-nav {
-  top: 0;
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items:center;
-  background-color: rgb(25, 25, 119);
-  width: 100vw;
-  height: 11.3vh;
-} */
-
-/* .nav-bar {
-  transition: all 0.3s ease;
-  transition-duration: 0.3s;
-  transition-timing-function: ease;
-  transition-delay: 0s;
-  transition-property: all;
-} */
-
-/* .top-nav::a {
-  color: #fff;
-  text-decoration: none;
-  padding: 0 23px;
-} */
-
-/* Style the main content */
-/* main {
-  margin-top: 60px;
-} */
-
-/* main h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-main p {
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-} */
-
-/* Style the navigation bar to be sticky and visually pleasing */
-
-
-/* .top-nav a {
-  color: var(--text-color);
-  text-decoration: none;
-  padding: 0 23px;
-} */
-
-/* .top-nav::a {
-  right: 2rem;
-  display: inline-block;
-  font-weight: 500;
-  font-size: 1em;
-  color: #fff;
-  text-decoration: none;
-  padding: 0 23px;
-  overflow: hidden;
-  z-index: 1;
-} */
-
 .main-pages {
   /* margin-top: 2rem; */
   top: 48.5em;
@@ -194,46 +143,6 @@ main p {
   position: inherit;
   /* flex-flow: wrap; */
   /* overflow: scroll; */
-}
-
-/* nav span {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 95px;
-  height: 100%;
-  background: linear-gradient(45deg, #4f1919, #ff3333);
-  border-radius: 8px;
-} */
-
-
-
-/* Style the logo text within the navigation bar */
-/* .logo-font {
-  font-size: 1rem;
-  font-style: italic;
-  color: red;
-  position: absolute;
-  top: 3rem;
-  margin-left: -11rem;
-  bottom: -10px;
-} */
-
-/* Style the banner text within the navigation bar */
-/* .banner-font {
-  color: white;
-  top: 1rem;
-  position: absolute;
-  left: 7rem;
-  margin-right: 3rem;
-  font-style: initial;
-} */
-
-/* Style the navigation links
-.prop {
-  margin: 0 2.5rem;
-  color: aliceblue;
-  position: relative;
 }
 
 /* Style the form to have a white background and proper spacing */

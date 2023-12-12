@@ -7,7 +7,7 @@ const Calender = () => {
   return (
     <div>
         <LocalizationProvider dateAdapter={AdapterDayjs} >
-            <StaticDatePicker orientation="portrait" />
+            <StaticDatePicker className='calender' orientation="portrait" />
         </LocalizationProvider>
     </div>
   )
