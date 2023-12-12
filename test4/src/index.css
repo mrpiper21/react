@@ -25,15 +25,14 @@ body {
 /* Style the navigation bar to be sticky and visually pleasing */
 .top-nav {
   box-shadow: 0 0 10px rgb(8, 8, 82);
-  margin: 0px 16px 0px 2px;
-  width: 100vw;
-  height: 11.3vh;
+  width: 77%;
+  padding: 1rem;
+  /* height: 11.3vh; */
   top: 0;
-  left: 21%;
+  right: 0;
   z-index: 100;
   float:inherit;
   overflow: hidden;
-  /* flex-flow: row wrap; */
   flex: 1 1 50%;
   display: flex;
   position: fixed;
@@ -81,7 +80,7 @@ body {
 
 .logo {
   height: 11.3vh;
-  width: 21vw;
+  width: 23%;
   flex-shrink: 2;
   box-shadow: 0 0 10px rgb(8, 8, 82);
   z-index: 100;
@@ -101,7 +100,7 @@ body {
 
 .admin-panel {
   position: relative;
-  left: 72%;
+  left: 93%;
   color: red;
 }
 
@@ -191,6 +190,14 @@ button {
   cursor: pointer;
 }
 
+.event-page {
+  top: 48.5em;
+  min-height: 100vh;
+  margin-inline: auto;
+  width: 70vw;
+  left: 0.5Srem;
+  position: inherit;
+}
 /* Style the "Adims Only!" text */
 .add {
   color: red;

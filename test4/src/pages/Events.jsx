@@ -3,7 +3,7 @@ const Events = () => {
   return (
     <>
       <Calender className="calender"/>
-      <div className="main-pages">
+      <div className="event-page">
         <h1>Event page</h1>
       </div>
     </>
