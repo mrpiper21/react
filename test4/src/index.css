@@ -78,6 +78,10 @@ body {
   /* overflow: scroll; */
 }
 
+.nav-bar {
+  position: relative;
+}
+
 .logo {
   height: 11.3vh;
   width: 23%;
@@ -120,16 +124,22 @@ body {
 }
 
 main {
+  position: relative;
+}
+
+.home-div {
   bottom: 44rem;
   right: 19rem;
   position: relative;
   justify-content: center;
   align-items: center;
-  max-width: 100px;
   margin: 0 auto;
-  padding: 20px;
   /* width: 100%; Ensure content fills the width */
   flex: 1; /* Allow the main content to take remaining vertical space */
+  margin-inline: auto;
+  width: 75%;
+  right: 40px;
+  margin: 0;
 }
 
 .main-pages {
@@ -140,8 +150,6 @@ main {
   width: 70vw;
   right: 40px;
   position: inherit;
-  /* flex-flow: wrap; */
-  /* overflow: scroll; */
 }
 
 /* Style the form to have a white background and proper spacing */
