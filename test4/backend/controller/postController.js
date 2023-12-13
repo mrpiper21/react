@@ -6,6 +6,7 @@ const getAllPost = asyncHandler(async(req, res) => {
     const allPosts = await Post.find()
     res.json(allPosts)
 })
+
 const creatPost =  asyncHandler (async(req, res) => {
     const { text } = req.body
     console.log(text)

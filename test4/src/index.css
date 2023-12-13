@@ -13,19 +13,20 @@ html {
 }
 
 body {
-  display: flex;
+  /* display: flex; */
   flex-direction: column; /* Set body as a flex container  a vertical layout */
-  flex-wrap: wrap;
-  overflow: scroll;
-  min-height: 100vh;
-  background-color: white;
   margin: 0;
 }
+
+main {
+  position: relative;
+}
+
 
 /* Style the navigation bar to be sticky and visually pleasing */
 .top-nav {
   box-shadow: 0 0 10px rgb(8, 8, 82);
-  width: 77%;
+  width: 78%;
   padding: 1rem;
   /* height: 11.3vh; */
   top: 0;
@@ -63,28 +64,23 @@ body {
   color: black;
 }
 
-.left-nav {
-  background-color: rgb(6, 6, 81);
-  border: grey solid 0.1rem;
-  width: 20.8vw;
-  min-height: 100vh;
+.banner {
+  width: 23%;
+  min-height: 90%;
   height: max-content;
-  top: 2rem;
+  top: 4rem;
   position: fixed;
-  left: 0;
   display: flex;
   flex-shrink: 1;
-  /* align-items: center; */
-  /* overflow: scroll; */
 }
 
 .nav-bar {
   position: relative;
 }
 
-.logo {
+.logo-div {
   height: 11.3vh;
-  width: 23%;
+  width: 22%;
   flex-shrink: 2;
   box-shadow: 0 0 10px rgb(8, 8, 82);
   z-index: 100;
@@ -92,6 +88,12 @@ body {
   top: 0px;
   left: 0;
   /* right: 20rem; */
+}
+
+.logo {
+  height: 100%;
+  position: relative;
+  width: 100%;
 }
 .logo2 {
   width: 20.8vw;
@@ -109,46 +111,24 @@ body {
 }
 
 .calender {
-  color: red;
-  background-color: blue;
-  border-right: 1px solid black;
-  width: 20.8vw;
-  min-height: 100vh;
-  height: max-content;
-  top: 2rem;
+  width: 23%;
+  min-height: 50%;
+  /* height: max-content; */
+  top: 4rem;
   position: fixed;
-  left: 0;
-  display: flex;
-  flex-shrink: 1;
   /* box-shadow: 7px rgba(0, 0, 0, 0.1); */
 }
 
-main {
-  position: relative;
-}
-
-.home-div {
-  bottom: 44rem;
-  right: 19rem;
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  /* width: 100%; Ensure content fills the width */
-  flex: 1; /* Allow the main content to take remaining vertical space */
-  margin-inline: auto;
+.home-page {
+  top: 5rem;
+  left: 20rem;
   width: 75%;
-  right: 40px;
-  margin: 0;
+  position: inherit;
 }
 
 .main-pages {
-  /* margin-top: 2rem; */
-  top: 48.5em;
-  min-height: 100vh;
+  top: 5rem;
   margin-inline: auto;
-  width: 70vw;
-  right: 40px;
   position: inherit;
 }
 
@@ -199,12 +179,10 @@ button {
 }
 
 .event-page {
-  top: 48.5em;
-  min-height: 100vh;
-  margin-inline: auto;
-  width: 70vw;
-  left: 0.5Srem;
-  position: inherit;
+  top: 5rem;
+  left: 20rem;
+  width: 75%;
+  position: inherit;;
 }
 /* Style the "Adims Only!" text */
 .add {

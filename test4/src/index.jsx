@@ -1,7 +1,5 @@
 import { FaSignInAlt } from 'react-icons/fa'
 import logo from './pages/Images/Logo4.jpg'
-import logo2 from './pages/Images/19_Psa.jpg'
-import Calender from './pages/Calender';
 import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
@@ -33,19 +31,24 @@ function MainLayout() {
   return (
     <>
       <header className='nav-bar'>
-        <img src={logo} alt="img" className='logo'/>
+        <div className='logo-div'>
+          <img src={logo} alt="img" className='logo'/>
+        </div>
+        
         {/* <LefNav /> */}
         <NavBar />
       </header>
-      <main>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/posts' element={<Posts />} />
-          <Route path='/events' element={<Events />} />
-          <Route path='/sermons' element={<Sermons />} />
-          <Route path='/about' element={<About />} />
-        </Routes>
-      </main>
+      <body>
+        <main>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/posts' element={<Posts />} />
+            <Route path='/events' element={<Events />} />
+            <Route path='/sermons' element={<Sermons />} />
+            <Route path='/about' element={<About />} />
+          </Routes>
+        </main>
+      </body>
     </>
   )
 }
