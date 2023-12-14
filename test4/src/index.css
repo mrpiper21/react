@@ -94,6 +94,7 @@ main {
   height: 100%;
   position: relative;
   width: 100%;
+  /* max-width: 700px; */
 }
 .logo2 {
   width: 20.8vw;
