@@ -132,6 +132,9 @@ main {
   position: inherit;
 }
 
+/* .post-div {
+  top: 6rem;
+} */
 /* Style the form to have a white background and proper spacing */
 form {
   background-color: white;
@@ -216,8 +219,12 @@ button {
 } */
 
 .bs {
+  position: relative;
+  top: 70px;
+  margin: 1rem;
+  padding: 1rem;
   border-radius: 0.5rem;
   color: white;
-  background-color: blue;
+  background-color: rgb(22, 22, 95);
   font-style: italic;
 }

@@ -1,4 +1,5 @@
 const Event = require('../model/eventModel')
+const dayjs = require('dayjs')
 
 const allEvent = async(req, res) => {
     try {
@@ -10,12 +11,11 @@ const allEvent = async(req, res) => {
 }
 
 const addEvent = async(req, res) => {
-    const { text } = req.body;
-    console.log(text)
+    const { text, date } = req.body;
     // if (!event) throw new Error('Required')
 
     try {
-        const newEvent = await Event.create({ text })
+        const newEvent = await Event.create({ text: text, date: dayjs(date, "YYYY-MM-DD").format("MM-DD-YYYY") })
         res.json(newEvent)
     } catch (err) {
         throw new Error(err)
@@ -24,7 +24,6 @@ const addEvent = async(req, res) => {
 
 const singleEvent = async(req, res) => {
     const { id } = req.params;
-    console.log(id)
     try {
         const event = await Event.findById({ _id: id })
         if(!event) throw new Error('Event not found')

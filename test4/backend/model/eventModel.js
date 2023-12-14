@@ -6,6 +6,10 @@ var eventSchema = new mongoose.Schema({
         type:String,
         required:true,
     },
+    date:{
+        type: Date,
+        required: true
+    }
 });
 
 //Export the model
