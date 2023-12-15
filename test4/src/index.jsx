@@ -2,6 +2,7 @@ import { FaSignInAlt } from 'react-icons/fa'
 import logo from './pages/Images/Logo4.jpg'
 import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom';
+import { generatedate } from './pages/utils/Calendar';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './index.css';
 
@@ -15,6 +16,7 @@ const Admin = lazy(() => import('./pages/Admin'));
 ReactDOM.render(<App />, document.getElementById('root'));
 
 function App() {
+  generatedate()
   return (
     <Router>
       <Suspense fallback={<p>Loading...</p>}>
