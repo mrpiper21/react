@@ -1,43 +1,36 @@
 import dayjs from "dayjs"
 
 export const generatedate = (month=dayjs().month(), year=dayjs().year()) => {
-    const firstDateOfMonth = dayjs().year(year).month(month).startOf('month')
-    const lastDateOfMonth = dayjs().year(year).month(month).endOf('month')
-    
-    const arrayOfDate = []
-    // generate current date
-    for (let i = firstDateOfMonth.date(); i <= lastDateOfMonth.date(); i++){
-        arrayOfDate.push({
-            currentMonth: false,
-            date: firstDateOfMonth.date(i),
-            today: firstDateOfMonth.date(i).toString() ===
-            dayjs().toDate().toString()
-        });
-    }
+    const startOfMonth = dayjs().year(year).month(month).startOf('month');
+  const endOfMonth = startOfMonth.endOf('month');
 
-    // create prefix date: 
-    for (let i = 0; i < firstDateOfMonth.day(); i++){
-        arrayOfDate.push({
-            date: firstDateOfMonth.day(i),
-            currentMonth: true,
-        })
-    }
+  const calendarDates = [];
 
-    // for (let i = firstDateOfMonth.date(); i <= lastDateOfMonth.date(); i++){
-    //     arrayOfDate.push(firstDateOfMonth.date(i))
-    // }
+  // Generate dates for the current month
+  for (let i = startOfMonth.date(); i <= endOfMonth.date(); i++) {
+    calendarDates.push({
+      currentMonth: true,
+      date: startOfMonth.date(i),
+      today: startOfMonth.date(i).isSame(dayjs(), 'day'),
+    });
+  }
 
-    const remaining = 42 - arrayOfDate.length
+  // Generate dates for the previous month
+  for (let i = 0; i < startOfMonth.day(); i++) {
+    calendarDates.unshift({
+      currentMonth: false,
+      date: startOfMonth.subtract(i + 1, 'day'),
+    });
+  }
 
-    for(let i = lastDateOfMonth.date() + 1; i < lastDateOfMonth.date() + remaining; i++){
-        arrayOfDate.push({
-            currentMonth: false,
-            date: lastDateOfMonth.date(i)
-        });
-    }
+  // Generate dates for the next month
+  const remaining = 42 - calendarDates.length;
+  for (let i = 0; i < remaining; i++) {
+    calendarDates.push({
+      currentMonth: false,
+      date: endOfMonth.add(i + 1, 'day'),
+    });
+  }
 
-    return arrayOfDate;
-
-
-    // return [firstDateOfMonth, lastDateOfMonth]
-}
+  return calendarDates;
+};

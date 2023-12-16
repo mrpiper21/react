@@ -94,6 +94,8 @@ main {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   background-color: rgb(249, 241, 224);
+  width: 17rem;
+  height: 15rem;
   gap: 2px;
   text-align: center;
   left: 0;
@@ -101,22 +103,42 @@ main {
   position: absolute;
 }
 
-.date {
+.calendar-btn {
+  border: none;
+  background-color: aquamarine;
+}
+
+.calendar-btn:hover,
+.calendar-btn:focus {
+  background: blue;
+  cursor: pointer;
+  color: white;
+}
+
+/* .date {
   padding: 5px;
   border-bottom: .002rem solid gray;
   background-color: blue;
   color: white;
   border-radius: 9px;
-}
+} */
 
 .today {
-  background-color: #e52421;
-  border-radius: 50%;
+  background-color: #e41713;
+  color: white;
+  border-radius: 5px;
+  text-shadow: blue;
+
+}
+
+.calendar-header {
+  width: 4px;
+  position: absolute;
 }
 
 .current {
   font-weight: bold;
-  background-color: brown;
+  color: gray;
 }
 
 .logo {
