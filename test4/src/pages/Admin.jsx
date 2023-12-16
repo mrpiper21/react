@@ -33,7 +33,7 @@ const Admin = () => {
           <img src={logo} alt="img" className="adminlogo" />
           <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required placeholder="Enter your email" />
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required placeholder="Enter your password" />
-          <button type='submit'><p className="bwit">Login</p></button>
+          <button type='submit'><p className="bwit admin-btn">Login</p></button>
           <p className="add">Admins Only!</p>
         </form>
       </div>

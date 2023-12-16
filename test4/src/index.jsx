@@ -14,6 +14,10 @@ const Admin = lazy(() => import('./pages/Admin'));
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
+const handleClick = () =>{
+  console.log('clicked')
+}
+
 function App() {
   return (
     <Router>
@@ -28,6 +32,9 @@ function App() {
 }
 
 function MainLayout() {
+  const handleClick = () =>{
+    console.log('clicked')
+  }
   return (
     <>
       <header className='nav-bar'>
@@ -43,7 +50,7 @@ function MainLayout() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/posts' element={<Posts />} />
-            <Route path='/events' element={<Events />} />
+            <Route path='/events' element={<Events handleClick={handleClick}/>} />
             <Route path='/sermons' element={<Sermons />} />
             <Route path='/about' element={<About />} />
           </Routes>

@@ -104,6 +104,9 @@ main {
 .date {
   padding: 5px;
   border-bottom: .002rem solid gray;
+  background-color: blue;
+  color: white;
+  border-radius: 9px;
 }
 
 .today {
@@ -113,6 +116,7 @@ main {
 
 .current {
   font-weight: bold;
+  background-color: brown;
 }
 
 .logo {
@@ -194,7 +198,7 @@ input {
 /* Style the login button with a unique color and border */
 
 
-button {
+.admin-btn {
   max-width: fit-content; /* Updated max-width value */
   padding: 0.9rem 6rem; /* Updated padding */
   margin-left: 5em;
