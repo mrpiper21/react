@@ -2,13 +2,7 @@ import * as React from 'react';
 import { generatedate } from './Calendar';
 
 const EventDay = React.memo(({ date, currenMonth, today, handleClick }) => (
-  <button onClick={handleClick} 
-          style={{
-            backgroundColor: today ? '#e5421' : currenMonth ?
-            'beige' : 'initial',
-            borderRadius: today ? '50%' : 'initial',
-            fontWeight: currenMonth ? 'bold' : 'initial'
-          }}>{date.date()}</button>
+  <button onClick={handleClick} className={ today ? 'today' : currenMonth ? 'current' : ''}>{date.date()}</button>
 ));
 
 const Events = ({ handleClick }) => {
