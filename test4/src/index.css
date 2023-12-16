@@ -90,6 +90,31 @@ main {
   /* right: 20rem; */
 }
 
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background-color: rgb(249, 241, 224);
+  gap: 2px;
+  text-align: center;
+  left: 0;
+  top: 5em;
+  position: absolute;
+}
+
+.date {
+  padding: 5px;
+  border-bottom: .002rem solid gray;
+}
+
+.today {
+  background-color: #e52421;
+  border-radius: 50%;
+}
+
+.current {
+  font-weight: bold;
+}
+
 .logo {
   height: 100%;
   position: relative;
