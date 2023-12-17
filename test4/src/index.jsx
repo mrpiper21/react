@@ -34,14 +34,13 @@ function App() {
 }
 
 function MainLayout() {
-  const API_URL = 'localhost:5000/api/'
-  const [reqType, setreqType] = useState('events')
+  const API_URL = 'localhost:5000/api/events/:id'
   const [dueEvent, SetdueEvent] = useEffect([])
 
   useEffect(() => {
     const fetchevent = async() => {
       try {
-        const response = await fetch(`${API_URL}${reqType}`)
+        const response = await fetch(API_URL)
         const data = await response.json()
         SetdueEvent(data)
       } catch (err){
@@ -50,7 +49,7 @@ function MainLayout() {
     }
 
     fetchevent()
-  }, [reqType])
+  }, [dueEvent])
   const handleClick = () =>{
     console.log('clicked')
   }
@@ -71,8 +70,6 @@ function MainLayout() {
             <Route path='/posts' element={<Posts />} />
             <Route path='/events' element={<Events 
                   handleClick={handleClick}
-                  reqType={reqType}
-                  setreqType={setreqType}
                   dueEvent={dueEvent}/>} />
             <Route path='/sermons' element={<Sermons />} />
             <Route path='/about' element={<About />} />

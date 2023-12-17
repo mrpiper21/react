@@ -1,18 +1,8 @@
 import * as React from 'react';
 import { generatedate } from './Calendar';
-import cn from './utils/Cn';
+import Eventday from './Eventday';
 
-const EventDay = React.memo(({ date, currenMonth, today, handleClick }) => (
-  <button onClick={handleClick}
-              reqType={reqType}
-              setreqType={setreqType}
-              dueEvent={dueEvent} 
-              className={cn(currenMonth ? "current" : "" ,
-              'calendar-btn',
-              today?"today" : "")}>{date.date()}</button>
-));
-
-const Events = ({ reqType, setreqType, dueEvent, handleClick }) => {
+const Events = ({ dueEvent, handleClick }) => {
   const dates = generatedate();
   const days = ['SU', 'M', 'T', 'W', 'T', 'F', 'S'];
 
@@ -28,7 +18,13 @@ const Events = ({ reqType, setreqType, dueEvent, handleClick }) => {
           <h4 key={index}>{day}</h4>
         ))}
         {dates.map(({ date, currenMonth, today }, index) => (
-          <EventDay key={index} date={date} currenMonth={currenMonth} today={today} handleClick={handleClick} />
+          <Eventday 
+                key={index} 
+                date={date}
+                dueEvent={dueEvent} 
+                currenMonth={currenMonth} 
+                today={today} 
+                handleClick={handleClick} />
         ))}
       </div>
     </>
