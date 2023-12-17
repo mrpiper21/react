@@ -4,6 +4,8 @@ import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './index.css';
+import { useState, useEffect } from 'react'
+
 
 const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
@@ -32,6 +34,23 @@ function App() {
 }
 
 function MainLayout() {
+  const API_URL = 'localhost:5000/api/'
+  const [reqType, setreqType] = useState('events')
+  const [dueEvent, SetdueEvent] = useEffect([])
+
+  useEffect(() => {
+    const fetchevent = async() => {
+      try {
+        const response = await fetch(`${API_URL}${reqType}`)
+        const data = await response.json()
+        SetdueEvent(data)
+      } catch (err){
+        console.log(err)
+      }
+    }
+
+    fetchevent()
+  }, [reqType])
   const handleClick = () =>{
     console.log('clicked')
   }
@@ -50,7 +69,11 @@ function MainLayout() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/posts' element={<Posts />} />
-            <Route path='/events' element={<Events handleClick={handleClick}/>} />
+            <Route path='/events' element={<Events 
+                  handleClick={handleClick}
+                  reqType={reqType}
+                  setreqType={setreqType}
+                  dueEvent={dueEvent}/>} />
             <Route path='/sermons' element={<Sermons />} />
             <Route path='/about' element={<About />} />
           </Routes>

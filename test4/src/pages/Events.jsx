@@ -3,20 +3,26 @@ import { generatedate } from './Calendar';
 import cn from './utils/Cn';
 
 const EventDay = React.memo(({ date, currenMonth, today, handleClick }) => (
-  <button onClick={handleClick} 
+  <button onClick={handleClick}
+              reqType={reqType}
+              setreqType={setreqType}
+              dueEvent={dueEvent} 
               className={cn(currenMonth ? "current" : "" ,
               'calendar-btn',
               today?"today" : "")}>{date.date()}</button>
 ));
 
-const Events = ({ handleClick }) => {
+const Events = ({ reqType, setreqType, dueEvent, handleClick }) => {
   const dates = generatedate();
-  console.log(dates)
-  console.log(Date.now())
   const days = ['SU', 'M', 'T', 'W', 'T', 'F', 'S'];
 
   return (
     <>
+      <div>
+        {dueEvent.map((id, text, date) => {
+          <h1 key={id}>{text}</h1>
+        })}
+      </div>
       <div className="calendar">
         {days.map((day, index) => (
           <h4 key={index}>{day}</h4>
