@@ -20,6 +20,15 @@ const handleClick = () =>{
   console.log('clicked')
 }
 
+const isValidEvent = (event) => {
+  return (
+    typeof event.id === 'string' && 
+    typeof event.text === 'string' && 
+    typeof event.date === 'object' && 
+    event.date.hasOwnProperty('date')
+  )
+}
+
 function App() {
   return (
     <Router>
@@ -34,22 +43,36 @@ function App() {
 }
 
 function MainLayout() {
-  const API_URL = 'localhost:5000/api/events/:id'
-  const [dueEvent, SetdueEvent] = useEffect([])
+  const API_URL = 'localhost:5000/api/events/'
+  const [id, setId] = useState('');
+  const [dueEvent, SetdueEvent] = useEffect({})
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchevent = async() => {
+    const fetchevent = async () => {
+      setIsLoading(true);
+      setError(null); // Clearing any previous errors
       try {
-        const response = await fetch(API_URL)
+        const response = await fetch(`${API_URL}${id}`)
+        if (!response.ok) throw new Error(`HTTP error ${response.status}`)
         const data = await response.json()
+
+        // validating the fetched data
+        if (!Array.isArray(data) || data.some(item => !isValidEvent(item))) {
+          throw new Error('Invalid event data received')
+        }
         SetdueEvent(data)
+        console.log(data)
       } catch (err){
         console.log(err)
+      } finally {
+        setIsLoading(false)
       }
     }
 
     fetchevent()
-  }, [dueEvent])
+  }, [id]); // Runing effect when id or API_URL changes
   const handleClick = () =>{
     console.log('clicked')
   }
@@ -69,6 +92,8 @@ function MainLayout() {
             <Route path='/' element={<Home />} />
             <Route path='/posts' element={<Posts />} />
             <Route path='/events' element={<Events 
+                  isLoading={isLoading}
+                  setId={setId}
                   handleClick={handleClick}
                   dueEvent={dueEvent}/>} />
             <Route path='/sermons' element={<Sermons />} />
