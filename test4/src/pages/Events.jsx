@@ -1,20 +1,17 @@
 import * as React from 'react';
-import { useParams } from 'react-router-dom'
 import { generatedate } from './Calendar';
 import Eventday from './Eventday';
 
-const Events = ({ dueEvent, handleClick, seteId }) => {
-  const { id } = useParams();
+const Events = ({ events, handleClick }) => {
   const dates = generatedate();
   const days = ['SUN', 'MON', 'TUE', 'WED', 'THUR', 'FRI', 'SAT'];
-  seteId(id)
 
   return (
     <>
       <div>
-        {dueEvent && dueEvent.map((id, text, date) => {
-          <h1 key={id}>{text}</h1>
-        })}
+        {events && events.map((id, text, date) => (
+          <h1 key={id}>{events.text}</h1>
+        ))}
       </div>
       <div className="calendar">
         {days.map((day, index) => (
@@ -23,8 +20,7 @@ const Events = ({ dueEvent, handleClick, seteId }) => {
         {dates.map(({ date, currenMonth, today }, index) => (
           <Eventday 
             key={index} 
-            date={date}
-            dueEvent={dueEvent} 
+            date={date} 
             currenMonth={currenMonth} 
             today={today} 
             handleClick={handleClick} />
