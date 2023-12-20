@@ -53,7 +53,7 @@ function MainLayout() {
       setError(null);
 
       try {
-        const response = await fetch('localhost:5000/api/events');
+        const response = await fetch('http://localhost:5000/api/events');
 
         if (!response.ok) {
           throw new Error(`HTTP error ${response.status}`);

@@ -8,9 +8,9 @@ const Events = ({ events, handleClick }) => {
 
   return (
     <>
-      <div>
-        {events && events.map((id, text, date) => (
-          <h1 key={id}>{events.text}</h1>
+      <div className='event-page'>
+        {events.map((event) => (
+          <h1 key={event._id}>{event.text}</h1>
         ))}
       </div>
       <div className="calendar">
@@ -21,6 +21,7 @@ const Events = ({ events, handleClick }) => {
           <Eventday 
             key={index} 
             date={date} 
+            events={events}
             currenMonth={currenMonth} 
             today={today} 
             handleClick={handleClick} />

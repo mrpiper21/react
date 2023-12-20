@@ -1,7 +1,7 @@
 import cn from './utils/Cn';
 import * as React from 'react';
 
-const Eventday = React.memo(({ date, currenMonth, today, handleClick }) => (
+const Eventday = React.memo(({ date, currenMonth, events, today, handleClick }) => (
     <button onClick={() => handleClick(date)} // Passing the date to handle click
                 className={cn(currenMonth ? "current" : "" ,
                 'calendar-btn',

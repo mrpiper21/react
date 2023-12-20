@@ -141,6 +141,11 @@ main {
   color: gray;
 }
 
+.event-page {
+  position: absolute;
+  top: 4rem;
+}
+
 .logo {
   height: 100%;
   position: relative;
