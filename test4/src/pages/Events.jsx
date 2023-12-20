@@ -1,16 +1,22 @@
 import * as React from 'react';
+import {useState} from 'react';
 import { generatedate } from './Calendar';
 import Eventday from './Eventday';
+import DueEvent from './utils/DueEvent';
 
-const Events = ({ events, handleClick }) => {
+const Events = ({ events }) => {
   const dates = generatedate();
+  const [selectedDate, setSelectedDate] = useState(null)
   const days = ['SUN', 'MON', 'TUE', 'WED', 'THUR', 'FRI', 'SAT'];
 
+  const handleDateClick = (date) => {
+    setSelectedDate(date)
+  }
   return (
     <>
       <div className='event-page'>
-        {events.map((event) => (
-          <h1 key={event._id}>{event.text}</h1>
+        {events.map((event, index) => (
+          <h1 key={index}>{event.text}</h1>
         ))}
       </div>
       <div className="calendar">
@@ -23,8 +29,10 @@ const Events = ({ events, handleClick }) => {
             date={date} 
             events={events}
             currenMonth={currenMonth} 
-            today={today} 
-            handleClick={handleClick} />
+            today={today}
+            handleDateClick={handleDateClick} 
+            selectedDate={selectedDate}
+          />
         ))}
       </div>
     </>

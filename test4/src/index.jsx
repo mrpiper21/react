@@ -16,10 +16,6 @@ const Admin = lazy(() => import('./pages/Admin'));
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
-const handleClick = () =>{
-  console.log('clicked')
-}
-
 const isValidEvent = (event) => {
   return (
     typeof event.id === 'string' && 
@@ -60,7 +56,6 @@ function MainLayout() {
         }
 
         const data = await response.json();
-        console.log(data)
         setEvents(data); // Update events state
         
         // Validate fetched data
