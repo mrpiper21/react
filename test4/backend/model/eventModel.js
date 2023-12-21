@@ -9,7 +9,8 @@ var eventSchema = new mongoose.Schema({
     date:{
         type: Date,
         required: true
-    }
+    },
+    image: String
 });
 
 //Export the model

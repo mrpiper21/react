@@ -95,7 +95,8 @@ function MainLayout() {
             <Route path='/events' element={<Events 
                   isLoading={isLoading}
                   handleClick={handleClick}
-                  events={events}/>} />
+                  events={events}/>}
+                   />
             <Route path='/sermons' element={<Sermons />} />
             <Route path='/about' element={<About />} />
           </Routes>

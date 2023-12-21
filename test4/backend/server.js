@@ -4,7 +4,11 @@ const userRoute = require('./router/userRoute')
 const postRoute = require('./router/postRoute')
 const eventRoute = require('./router/eventRoute')
 const morgan = require('morgan')
+const multer = require('multer')
+const path = require('path')
 const connectDB = require('./config/db')
+
+
 require('dotenv').config()
 PORT = 5000
 connectDB()
@@ -19,10 +23,21 @@ app.use(express.urlencoded({ extended: false }))
 // app.get('/', (req, res) => {
 //     res.end('Home page')
 // })
+// const storage = multer.diskStorage({
+//     destination: (req, file, cb) => {
+//         cb(null, 'public/images')
+//     },
+//     filename: (req, file, cb) => {
+//         cb(null, file.fieldname + "_" + Date.now() + path.extname(file.originalname))
+//     }
+// })
 
 app.use('/api/user', userRoute)
 app.use('/api/posts', postRoute)
 app.use('/api/events', eventRoute)
+// app.post('/upload',upload.single('file'), (req, res) => {
+//     console.log(req.file)
+// })
 
 
 app.listen(PORT, ()=> console.log(`server listening on port ${PORT}`))
