@@ -2,7 +2,6 @@ import * as React from 'react';
 import {useState} from 'react';
 import { generatedate } from './Calendar';
 import Eventday from './Eventday';
-import DueEvent from './utils/DueEvent';
 
 const Events = ({ events }) => {
   const dates = generatedate();

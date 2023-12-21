@@ -6,13 +6,16 @@ export default function DueEvent({ date, events}) {
     }
 
     const parseDate = dayjs(date);
+    const formattedDate = parseDate.format('YYYY-MM-DD')
   
     const matchingEvents = events.filter((event) => {
         return dayjs(event.date).isSame(parseDate, 'day')
     });
     if (matchingEvents.length > 0) {
-      return matchingEvents.map((event) => <h1 key={event._id}>{event.text}</h1>);
+      return matchingEvents.map((event) => (
+          <span key={event._id}>{event.text}</span>
+        ))
     } else {
-      return <h2>No events available</h2>;
+      return <h3>No events available for {formattedDate}</h3>;
     }
   }

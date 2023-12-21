@@ -1,6 +1,7 @@
 import logo from '../pages/Images/logo3.png'
 import { useNavigate } from 'react-router-dom'
 import React, { useState } from 'react'
+import AdminPanel from './AdminPanel';
 
 const Admin = () => {
     const [email, setEmail] = useState('')
@@ -22,7 +23,7 @@ const Admin = () => {
 
         //if login is successful, redirect to home page
         if (response.status === 200) {
-            navigate('/');
+            navigate('/admin-panel');
         } else {
             throw new Error('Attempt failed, Please try again')
         }

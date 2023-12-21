@@ -13,6 +13,7 @@ const Posts = lazy(() => import('./pages/Posts'));
 const Events = lazy(() => import('./pages/Events'));
 const Sermons = lazy(() => import('./pages/Sermons'));
 const Admin = lazy(() => import('./pages/Admin'));
+const AdminPanel = lazy(() => import('./pages/AdminPanel'))
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
@@ -31,6 +32,7 @@ function App() {
       <Suspense fallback={<p>Loading...</p>}>
           <Routes>
             <Route path="/admin" element={<Admin />} />
+            <Route path="admin-panel" element={<AdminPanel />} />
             <Route path="/*" element={<MainLayout />} />
           </Routes>
       </Suspense>

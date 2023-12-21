@@ -150,8 +150,7 @@ main {
   top: 27rem;
   position: absolute;
   display: flex;
-  background-color: #e44b13;
-  color: white;
+  /* background-color: #e44b13; */
   border-radius: 3rem;
 }
 
