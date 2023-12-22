@@ -17,6 +17,7 @@ const upload = multer({
   storage: storage
 });
 
+
 const getAllEvent = async (req, res) => {
   try {
     const events = await Event.find();
@@ -28,6 +29,7 @@ const getAllEvent = async (req, res) => {
 
 const addEvent = async (req, res) => {
   const { text, date } = req.body;
+
   try {
     const newEvent = new Event({
       text,

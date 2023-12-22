@@ -3,7 +3,7 @@ const { getAllEvent, upload, addEvent } = require('../controller/eventController
 const authMiddleware = require('../middleware/authmiddleware')
 const router = express.Router()
 
-router.get('/', getAllEvent).get('/:id', singleEvent)
-router.post('/upload', authMiddleware, upload, addEvent)
+router.get('/', getAllEvent)
+router.post('/upload', authMiddleware, upload.single('image'), addEvent)
 
 module.exports = router

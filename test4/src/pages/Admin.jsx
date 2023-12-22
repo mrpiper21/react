@@ -22,7 +22,8 @@ const Admin = () => {
         const data = await response.json();
 
         //if login is successful, redirect to home page
-        if (response.status === 200) {
+        if (response.status === 200 && data.token) {
+            localStorage.setItem('token', data.token);
             navigate('/admin-panel');
         } else {
             throw new Error('Attempt failed, Please try again')
@@ -30,11 +31,11 @@ const Admin = () => {
     }
     return (
       <div className="admindiv">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='addmin-login-form'>
           <img src={logo} alt="img" className="adminlogo" />
           <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required placeholder="Enter your email" />
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required placeholder="Enter your password" />
-          <button type='submit'><p className="bwit admin-btn">Login</p></button>
+          <button type='submit' className="bwit admin-btn">Login</button>
           <p className="add">Admins Only!</p>
         </form>
       </div>

@@ -16,6 +16,7 @@ body {
   /* display: flex; */
   flex-direction: column; /* Set body as a flex container  a vertical layout */
   margin: 0;
+  background-color: rgb(250, 238, 239);
 }
 
 main {
@@ -142,7 +143,7 @@ main {
 }
 
 .event-page {
-  position: absolute;
+  position: relative;
   top: 4rem;
 }
 
@@ -180,7 +181,7 @@ main {
   min-height: 50%;
   /* height: max-content; */
   top: 4rem;
-  position: fixed;
+  position:static;
   /* box-shadow: 7px rgba(0, 0, 0, 0.1); */
 }
 
@@ -201,7 +202,7 @@ main {
   top: 6rem;
 } */
 /* Style the form to have a white background and proper spacing */
-form {
+.addmin-login-form {
   background-color: white;
   padding: 1rem;
   min-height: 60vh;
@@ -219,6 +220,56 @@ form {
   position: absolute;
 }
 
+.event-inpt {
+  height: 15vh;
+}
+
+.event-text {
+  padding: 1rem;
+}
+.event-uplod-form {
+  background-color: white;
+  left: 15rem;
+  padding: 1rem;
+  min-height: 60vh;
+  width: 60%; /* Adjusted width to be responsive */
+  top: 5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
+}
+
+.indivedual-event {
+  display: flex;
+  width: 60%;
+  height: auto;
+  left: 4rem;
+  position: relative;
+  background-color: white;
+  border-radius: 1rem;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.indivedual-event span {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.event-images {
+  width: 100%;
+  /* max-width: 300px; */
+  height: 80%;
+}
+/* .event-text {
+  padding: 0.8rem;
+  left: 0;
+  position: absolute;
+  margin-left: 0;
+} */
 /* Style the input fields with borders and padding */
 input {
   display: block;
@@ -228,6 +279,10 @@ input {
   width: 100%;
   border: 1px solid #ccc;
   color: #333;
+}
+
+.img-prvw {
+  width: 90%;
 }
 
 /* Style the login button with a unique color and border */
