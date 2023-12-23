@@ -3,13 +3,20 @@ import axios from 'axios'
 import Events from "./Events"
 
 const AdminPanel = () => {
-    // const [file, setFile] = useState()
     const [text, setText] = useState('')
     const [image, setImage] = useState(null)
     const [date, setDate] = useState('')
-    
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(null)
+
     const handleImageChange = (e) => {
-        setImage(URL.createObjectURL(e.target.files[0]));
+        const file = e.target.files[0];
+        if(file && file.type.startsWith('image/')) {
+            setImage(file);
+        } else {
+            setImage(null);
+            setError('Please select an image file');
+        }
     }
 
     const handleTextChange = (e) => {
@@ -22,15 +29,20 @@ const AdminPanel = () => {
 
     const handleUpload = async (e) => {
         e.preventDefault();
+        setLoading(true);
+        setError(null);
         const formData = new FormData()
         formData.append('date', date)
         formData.append('image', image)
         formData.append('text', text)
 
+        // ... rest of your code ...
         // Get the token from local storage
         const token = localStorage.getItem('token')
+
         try {
             const base_url = 'http://localhost:5000/api/'
+
             const response = await axios.post(`${base_url}events/upload`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
@@ -38,20 +50,28 @@ const AdminPanel = () => {
                 }
             });
             console.log('Upload successful', response.data)
+            setText('');
+            setImage(null);
+            setDate('');
         } catch (error) {
             console.error('Upload failed', error)
+            setError('Upload failed');
+        } finally {
+            setLoading(false);
         }
     }
 
+    // ... rest of your code ...
     useEffect(() => {
         axios.get('http://localhost:5000/api/events')
           .then(res => console.log(res))
           .catch(err => console.log(err))
     }, [])
 
-
     return (
         <form onSubmit={handleUpload} className="event-uplod-form">
+            {loading && <p>Uploading...</p>}
+            {error && <p>{error}</p>}
             <div>
                 <label htmlFor="imageUpload">Choose an image</label>
                 <input type="date" value={date} onChange={handleDateChange}/>
@@ -60,7 +80,7 @@ const AdminPanel = () => {
             </div>
             <button type="submit">Upload</button>
             <br />
-            <img src={image} alt="" className="img-prvw"/>
+            {image && <img src={image} alt="" className="img-prvw"/>}
         </form>
     )
 }

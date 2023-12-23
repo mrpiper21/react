@@ -16,11 +16,12 @@ body {
   /* display: flex; */
   flex-direction: column; /* Set body as a flex container  a vertical layout */
   margin: 0;
-  background-color: rgb(250, 238, 239);
+  background-color: white;
 }
 
 main {
   position: relative;
+  /* width: 100%; */
 }
 
 
@@ -91,38 +92,43 @@ main {
   /* right: 20rem; */
 }
 
+.calendar-title {
+  /* top: 5rem; */
+  left: 5.5rem;
+  position: relative;
+}
 .calendar {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  background-color: rgb(249, 241, 224);
-  width: 17rem;
+  background-color: white;
+  border: #cccaca solid 0.09rem;
+  border-radius: 0.4rem;
+  width: 90%;
   height: 15rem;
   gap: 2px;
   text-align: center;
-  left: 0;
-  top: 5em;
+  left: 1.2rem;
   position: absolute;
+  padding: 0.4rem;
+
 }
 
 .calendar-btn {
   border: none;
-  background-color: rgb(160, 188, 246);
+  background-color: rgb(5, 23, 80);
+  color: white;
+  padding: 0.5rem;
+  width: 3vw;
+  border-radius: 0.5rem;
+  position: relative;
 }
 
 .calendar-btn:hover,
 .calendar-btn:focus {
-  background: blue;
+  background: wheat;
   cursor: pointer;
   color: white;
 }
-
-/* .date {
-  padding: 5px;
-  border-bottom: .002rem solid gray;
-  background-color: blue;
-  color: white;
-  border-radius: 9px;
-} */
 
 .today {
   background-color: #e44b13;
@@ -144,15 +150,38 @@ main {
 
 .event-page {
   position: relative;
-  top: 4rem;
+}
+
+.event-div {
+  background-color: rgb(241, 239, 239);
+  left: 0rem;
+  /* position: static; */
+  top: 1.5rem;
+  border-radius: 0.7rem;
+  border: #cccaca solid 0.09rem;
+  padding: 1.5rem;
+  height: 518px;
+  width: 25vw;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
 }
 
 .due-event {
-  top: 27rem;
-  position: absolute;
+  top: 400px;
+  bottom: 100%;
+  position: relative;
   display: flex;
-  /* background-color: #e44b13; */
-  border-radius: 3rem;
+  padding: 0.4rem;
+  height: 10%;
+  width: auto;
+  border: #cccaca solid 0.09rem;
+  background-color: white;
+  border-radius: 0.5rem;
+}
+
+.due-event-text {
+  color: gray;
+  position: absolute;
 }
 
 .logo {
@@ -176,15 +205,6 @@ main {
   color: red;
 }
 
-.calender {
-  width: 23%;
-  min-height: 50%;
-  /* height: max-content; */
-  top: 4rem;
-  position:static;
-  /* box-shadow: 7px rgba(0, 0, 0, 0.1); */
-}
-
 .home-page {
   top: 5rem;
   left: 20rem;
@@ -192,11 +212,11 @@ main {
   position: inherit;
 }
 
-.main-pages {
+/* .main-pages {
   top: 5rem;
   margin-inline: auto;
   position: inherit;
-}
+} */
 
 /* .post-div {
   top: 6rem;
@@ -251,6 +271,7 @@ main {
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
 }
 
 .indivedual-event span {
@@ -262,7 +283,7 @@ main {
 .event-images {
   width: 100%;
   /* max-width: 300px; */
-  height: 80%;
+  max-height: 400px;
 }
 /* .event-text {
   padding: 0.8rem;
@@ -324,19 +345,6 @@ input {
   border-radius: 0.5rem;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Added a subtle shadow */
 }
-
-/* Style the rest of the content within the page */
-/* div {
-  margin-top: 1rem;
-} */
-
-/* Style the footer navigation bar */
-/* .navbar {
-  display: flex;
-  align-items: center;
-  background-color: rgb(8, 8, 82);
-  padding: 1rem;
-} */
 
 .bs {
   position: relative;
