@@ -13,9 +13,9 @@ export default function DueEvent({ date, events}) {
     });
     if (matchingEvents.length > 0) {
       return matchingEvents.map((event) => (
-          <span className="due-event" key={event._id}>{event.text}</span>
+          <span className="due-event" key={event._id}>{`${event.title} is due on ${event.date}`}</span>
         ))
     } else {
-      return <h4 className="due-event-text due-event">No events available for {formattedDate}</h4>;
+      return <h5 className="due-event-text due-event">No events available for {formattedDate}</h5>;
     }
   }

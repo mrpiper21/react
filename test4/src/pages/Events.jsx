@@ -1,52 +1,40 @@
-import * as React from 'react';
-import {useState, useEffect} from 'react';
-import { generatedate } from './Calendar';
-import Eventday from './Eventday';
-import DueEvent from './utils/DueEvent';
+import generatedate from "./Generatedate";
+import dayjs from "dayjs";
+import { useState, useCallback } from 'react'
+import Calendar from "./Calendar";
+import DueEvent from './utils/DueEvent'
 
 const Events = ({ events }) => {
   const dates = generatedate();
-  const [selectedDate, setSelectedDate] = useState(null)
-  const days = ['SUN', 'MON', 'TUE', 'WED', 'THUR', 'FRI', 'SAT'];
+  const date = dayjs()
 
-  const handleDateClick = (date) => {
+  const [monthInWords, setMonthInwords] = useState(date.format('MMMM'))
+  const [selectedDate, setSelectedDate] = useState(null)
+
+  const handleDateClick = useCallback((date) => {
     setSelectedDate(date)
-  }
+    const newDate = dayjs(date)
+    setMonthInwords(newDate.format('MMMM'))
+  }, []);
 
   return (
     <>
       <div>
-        {events.map((event, index) => (
-          <div key={index} className='indivedual-event'>
+        {events.map((event) => (
+          <div key={event.id} className='indivedual-event'>
             <span>{event.date}</span>
             <p className='event-text'>{event.text}</p>
             {event.image && <img src={`http://localhost:5000/images/${event.image}`} alt="Event" className='event-images'/>}
           </div>
         ))}
         <div className='event-div'>
-          <h3 className='calendar-title'>Event Calendar</h3>
-          <div className="calendar">
-            {days.map((day, index) => (
-              <h4 key={index}>{day}</h4>
-            ))}
-            {dates.map(({ date, currenMonth, today }, index) => (
-              <div>
-                  <Eventday 
-                  key={index} 
-                  date={date} 
-                  events={events}
-                  currenMonth={currenMonth} 
-                  today={today}
-                  handleDateClick={handleDateClick} 
-                  selectedDate={selectedDate}
-                />
-              </div>
-            ))}
-          </div>
+          <h3 className='calendar-title'>{monthInWords}</h3>
+          <Calendar dates={dates} handleDateClick={handleDateClick} selectedDate={selectedDate} events={events} />
           <div>{selectedDate && <DueEvent date={selectedDate} events={events} />}</div>
         </div>
       </div>
     </>
   );
 };
+
 export default Events;

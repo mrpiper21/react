@@ -80,9 +80,7 @@ function MainLayout() {
   return (
     <>
       <header className='nav-bar'>
-        <div className='logo-div'>
-          <img src={logo} alt="img" className='logo'/>
-        </div>
+        <img src={logo} alt="img" className='logo'/>
         
         {/* <LefNav /> */}
         <NavBar />

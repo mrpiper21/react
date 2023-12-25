@@ -28,11 +28,12 @@ const getAllEvent = async (req, res) => {
 };
 
 const addEvent = async (req, res) => {
-  const { text, date } = req.body;
+  const { title, text, date } = req.body;
 
   try {
     const newEvent = new Event({
-      text,
+      title: title,
+      text: text,
       date: dayjs(date, "YYYY-MM-DD").format("MM-DD-YYYY"),
       image: req.file ? req.file.filename : null
     });

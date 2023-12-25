@@ -3,11 +3,16 @@ import axios from 'axios'
 import Events from "./Events"
 
 const AdminPanel = () => {
+    const [title, setTitle] = useState('')
     const [text, setText] = useState('')
     const [image, setImage] = useState(null)
     const [date, setDate] = useState('')
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
+
+    const handleTitleChange = (e) => {
+        setTitle(e.target.value)
+    }
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -32,6 +37,7 @@ const AdminPanel = () => {
         setLoading(true);
         setError(null);
         const formData = new FormData()
+        formData.append('title', title)
         formData.append('date', date)
         formData.append('image', image)
         formData.append('text', text)
@@ -75,6 +81,7 @@ const AdminPanel = () => {
             <div>
                 <label htmlFor="imageUpload">Choose an image</label>
                 <input type="date" value={date} onChange={handleDateChange}/>
+                <input type="text" value={title} onChange={handleTitleChange} placeholder="Event title" />
                 <input type="text" value={text} onChange={handleTextChange} placeholder="Event Description" className="event-inpt"/>
                 <input type="file" onChange={handleImageChange} placeholder="Add image"/>
             </div>
