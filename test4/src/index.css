@@ -103,9 +103,9 @@ main {
   background-color: white;
   border: #cccaca solid 0.09rem;
   border-radius: 0.4rem;
-  width: 90%;
-  height: 15rem;
-  gap: 2px;
+  width: 40vh;
+  height: 25vw;
+  /* gap: 2px; */
   text-align: center;
   left: 1.2rem;
   position: absolute;
@@ -117,9 +117,10 @@ main {
   border: none;
   background-color: rgb(5, 23, 80);
   color: white;
-  padding: 0.5rem;
-  width: 3vw;
-  border-radius: 0.5rem;
+  /* padding: 0.5rem; */
+  height: 4vh;
+  width: 2.5vh;
+  /* bordeadius: 0.5rem; */
   position: relative;
 }
 
@@ -148,28 +149,29 @@ main {
   color: gray;
 }
 
-.event-page {
+/* .event-page {
   position: relative;
-}
+  width: 100%;
+} */
 
 .event-div {
   background-color: rgb(241, 239, 239);
-  left: 0rem;
-  /* position: static; */
-  top: 1.5rem;
+  left: 1rem;
+  top: 5rem;
   border-radius: 0.7rem;
   border: #cccaca solid 0.09rem;
   padding: 1.5rem;
-  height: 518px;
+  height: 200vw;
   width: 25vw;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-  position: absolute;
+  position:fixed;
+  flex-wrap: wrap;
 }
 
 .due-event {
-  top: 400px;
-  bottom: 100%;
-  position: relative;
+  top: 450px;
+  bottom: 150%;
+  position: absolute;;
   display: flex;
   padding: 0.4rem;
   height: 10%;
@@ -262,9 +264,9 @@ main {
 
 .indivedual-event {
   display: flex;
-  width: 60%;
+  width: 45%;
   height: auto;
-  left: 4rem;
+  left: 25rem;
   position: relative;
   background-color: white;
   border-radius: 1rem;

@@ -15,7 +15,7 @@ const Events = ({ events }) => {
 
   return (
     <>
-      <div className='event-page'>
+      <div>
         {events.map((event, index) => (
           <div key={index} className='indivedual-event'>
             <span>{event.date}</span>
