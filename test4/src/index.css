@@ -112,26 +112,30 @@ main {
   position: relative;
 }
 .calendar-btn {
-  margin-top: -1.5rem;
   border: none;
   background-color: rgb(13, 46, 154);
   color: white;
-  height: 4vh;
-  width:2.5vw;
-  position: sticky;
+  min-height: 3vw;
+  min-width: 3.5vw;
 }
 
+.cal-days {
+  /* display: grid; */
+  grid-template-rows: 1fr; /* Set up as columns */
+  width: 2vw;
+}
+
+
 .calendar {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(7, 1fr);
   background-color: white;
   border: #cac4c4 solid 0.09rem;
   border-radius: 0.4rem;
-  min-width: auto;
-  min-height: 37vh;
-  text-align: center;
-  position: relative;
-  padding: 0.4rem;
+  /* text-align: center; */
+  position: sticky;
+  top: 0;
+  /* padding: 0.4rem; */
 }
 
 /* For devices smaller than 600px */
@@ -190,26 +194,29 @@ main {
 
 .event-div {
   background-color: whitesmoke;
+  grid-template-columns: repeat(7, 1fr);
   left: 1rem;
   top: 5rem;
   border-radius: 0.7rem;
   border: #cccaca solid 0.09rem;
   padding: 1.5rem;
   height: 85vh;
-  width: 25vw;
+  max-width: 30vw;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-  position:fixed;
-  flex-wrap: wrap;
+  position: fixed;
+  /* flex-wrap: wrap; */
 }
 
 .due-event {
-  top: 300px;
-  bottom: 150%;
-  left: 3rem;
+  top: 440px;
+  /* bottom: 150%; */
+  left: 5.5rem;
   display: flex;
-  padding: 0.4rem;
-  height: 4vw;
-  width: auto;
+  text-align: center;
+  padding: 0.2rem;
+  height: auto;
+  min-width: 10vw;
+  /* width: 27vw; */
   color: rgb(95, 240, 95);
   border: #cccaca solid 0.09rem;
   background-color: white;
