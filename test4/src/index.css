@@ -120,22 +120,21 @@ main {
 }
 
 .cal-days {
-  /* display: grid; */
-  grid-template-rows: 1fr; /* Set up as columns */
-  width: 2vw;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background-color: #e44b13;
+  color: white;
 }
 
-
 .calendar {
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(7, 1fr);
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: auto;
   background-color: white;
   border: #cac4c4 solid 0.09rem;
   border-radius: 0.4rem;
-  /* text-align: center; */
   position: sticky;
   top: 0;
-  /* padding: 0.4rem; */
 }
 
 /* For devices smaller than 600px */
@@ -172,7 +171,6 @@ main {
 .today {
   background-color: #e44b13;
   color: white;
-  border-radius: 5px;
   text-shadow: blue;
 
 }
@@ -187,14 +185,9 @@ main {
   color: gray;
 }
 
-/* .event-page {
-  position: relative;
-  width: 100%;
-} */
-
 .event-div {
   background-color: whitesmoke;
-  grid-template-columns: repeat(7, 1fr);
+  /* grid-template-columns: repeat(7, 1fr); */
   left: 1rem;
   top: 5rem;
   border-radius: 0.7rem;
@@ -211,7 +204,7 @@ main {
   top: 440px;
   /* bottom: 150%; */
   left: 5.5rem;
-  display: flex;
+  /* display: flex; */
   text-align: center;
   padding: 0.2rem;
   height: auto;
