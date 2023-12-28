@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Events from "./Events"
 
@@ -9,6 +10,8 @@ const AdminPanel = () => {
     const [date, setDate] = useState('')
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
+
+    const navigate = useNavigate()
 
     const handleTitleChange = (e) => {
         setTitle(e.target.value)
@@ -59,6 +62,7 @@ const AdminPanel = () => {
             setText('');
             setImage(null);
             setDate('');
+            navigate('/events')
         } catch (error) {
             console.error('Upload failed', error)
             setError('Upload failed');
@@ -67,7 +71,6 @@ const AdminPanel = () => {
         }
     }
 
-    // ... rest of your code ...
     useEffect(() => {
         axios.get('http://localhost:5000/api/events')
           .then(res => console.log(res))

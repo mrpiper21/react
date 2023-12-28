@@ -4,7 +4,7 @@ import Eventday from './Eventday';
 const days = ['SUN', 'MON', 'TUE', 'WED', 'THUR', 'FRI', 'SAT'];
 
 const Calendar = ({ dates, handleDateClick, selectedDate, events }) => (
-  <div className="calendar">
+  <div>
     <div className='cal-days'>
       {days.map((day, index) => (
         <h6 key={index}>{day}</h6>

@@ -123,10 +123,14 @@ main {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   background-color: #e44b13;
+  max-width: 24.5vw;
+  padding: 0.5rem;
   color: white;
+  text-align: center;
 }
 
 .calendar {
+  height: auto;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: auto;

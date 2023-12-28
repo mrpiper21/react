@@ -45,19 +45,24 @@ const addEvent = async (req, res) => {
   }
 };
 
+const deleteEvent = async(req, res) => {
+  const _id = req.params.id;
+  try {
+    const event = await Event.findByIdAndDelete(_id)
+    if (!event) {
+      res.json({ message: 'event not available'}).status(400)
+    } else {
+      localStorage.removeItem(_id);
+      return res.json(event);
+    }
+  } catch (err) {
+    console.log(err)
+  }
+}
+
 module.exports = {
   getAllEvent,
+  deleteEvent,
   upload,
   addEvent
 };
-
-// const singleEvent = async(req, res) => {
-//     const { id } = req.params;
-//     try {
-//         const event = await Event.findById({ _id: id })
-//         if(!event) throw new Error('Event not found')
-//         res.json(event)
-//     } catch (err) {
-//         throw new Error(err)
-//     }
-// }
