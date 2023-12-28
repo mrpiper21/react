@@ -1,17 +1,21 @@
 import generatedate from "./Generatedate";
 import dayjs from "dayjs";
 import { Axios } from "axios";
-import { useState, useEffect, useCallback } from 'react'
+import { IoAddSharp, IoTrashSharp } from "react-icons/io5";
+import { useState, useEffect, useCallback, useContext } from 'react'
+import UserContext from "./features/usercontext";
+import { useNavigate } from 'react-router-dom'
 import Calendar from "./Calendar";
 import DueEvent from './utils/DueEvent'
+import { UserProvider } from "./features/usercontext";
 
 const Events = ({ events }) => {
+  // const [user, setUser] = useContext(UserContext)
   const dates = generatedate();
   const date = dayjs()
-
+  console.log(events)
   const [monthInWords, setMonthInwords] = useState(date.format('MMMM'))
   const [selectedDate, setSelectedDate] = useState(null)
-  const [userData, setUserData] = useState(null)
 
   const handleDateClick = useCallback((date) => {
     setSelectedDate(date)
@@ -19,25 +23,26 @@ const Events = ({ events }) => {
     setMonthInwords(newDate.format('MMMM'))
   }, []);
 
-  // useEffect(() => {
-  //   Axios.get('http://localhost:5000/api/user')
-  //   .then(response => response.json())
-  //   .then(data => setUserData(data))
-  //   .catch(err => console.log('Error:', err))
-  // },[])
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    // setUser(user)
+    navigate('adnim-panel')
+  }
 
   const token = localStorage.getItem('token')
   try {
     if (token) {
       return (
         <>
+        <UserProvider>
           <div>
-            {events.map((event) => (
+            {Array.isArray(events) && events.map((event) => (
               <div key={event.id} className='indivedual-event'>
                 <span>{event.date}</span>
                 <p className='event-text'>{event.text}</p>
                 {event.image && <img src={`http://localhost:5000/images/${event.image}`} alt="Event" className='event-images'/>}
-                <button>delete</button>
+                <IoTrashSharp className="trash-icon"/>
               </div>
             ))}
             <div className='event-div'>
@@ -46,26 +51,29 @@ const Events = ({ events }) => {
               <div>{selectedDate && <DueEvent date={selectedDate} events={events} />}</div>
             </div>
           </div>
+          <button className="add-event" onClick={handleClick}><IoAddSharp className="add-icon"/></button>
+        </UserProvider>
         </>
       );
     } else {
       return (
         <>
-          <div>
-            {events.map((event) => (
-              <div key={event.id} className='indivedual-event'>
-                <span>{event.date}</span>
-                <p className='event-text'>{event.text}</p>
-                {event.image && <img src={`http://localhost:5000/images/${event.image}`} alt="Event" className='event-images'/>}
-                <button>delete</button>
+          <UserProvider>
+            <div>
+              {Array.isArray(events) && events.map((event) => (
+                <div key={event.id} className='indivedual-event'>
+                  <span>{event.date}</span>
+                  <p className='event-text'>{event.text}</p>
+                  {event.image && <img src={`http://localhost:5000/images/${event.image}`} alt="Event" className='event-images'/>}
+                </div>
+              ))}
+              <div className='event-div'>
+                <h3 className='calendar-title'>{monthInWords}</h3>
+                <Calendar dates={dates} handleDateClick={handleDateClick} selectedDate={selectedDate} events={events} />
+                <div>{selectedDate && <DueEvent date={selectedDate} events={events} />}</div>
               </div>
-            ))}
-            <div className='event-div'>
-              <h3 className='calendar-title'>{monthInWords}</h3>
-              <Calendar dates={dates} handleDateClick={handleDateClick} selectedDate={selectedDate} events={events} />
-              <div>{selectedDate && <DueEvent date={selectedDate} events={events} />}</div>
             </div>
-          </div>
+          </UserProvider>
         </>
       );
     }

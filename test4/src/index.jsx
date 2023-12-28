@@ -1,120 +1,46 @@
-import { FaSignInAlt } from 'react-icons/fa'
-import logo from './pages/Images/Logo4.jpg'
 import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { UserProvider} from './pages/features/usercontext'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
 import { useState, useEffect } from 'react'
+import MainLayout from './pages/components/MainLayout'
 
-
-const Home = lazy(() => import('./pages/Home'));
-const About = lazy(() => import('./pages/About'));
-const Posts = lazy(() => import('./pages/Posts'));
-const Events = lazy(() => import('./pages/Events'));
-const Sermons = lazy(() => import('./pages/Sermons'));
 const Admin = lazy(() => import('./pages/Admin'));
 const AdminPanel = lazy(() => import('./pages/AdminPanel'))
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
-const isValidEvent = (event) => {
-  return (
-    typeof event.id === 'string' && 
-    typeof event.text === 'string' && 
-    typeof event.date === 'object' && 
-    event.date.hasOwnProperty('date')
-  )
-}
-
 function App() {
+  const [user, setUser] = useState(null)
+
+  //Loadi usrdata from localStorage when app starts
+  useEffect(() => {
+    const savedUser = localStorage.getItem('user');
+    if (savedUser) {
+      setUser(JSON.parse(savedUser))
+    }
+  }, [])
+
+  // Save userdata to localStorage whenever it changes
+  useEffect (() => {
+    if (user) {
+      localStorage.setItem('user', JSON.stringify(user))
+    } else {
+      localStorage.removeItem('user')
+    }
+  }, [user])
   return (
     <Router>
       <Suspense fallback={<p>Loading...</p>}>
-          <Routes>
+        <Routes>
             <Route path="/admin" element={<Admin />} />
             <Route path="admin-panel" element={<AdminPanel />} />
             <Route path="/*" element={<MainLayout />} />
-          </Routes>
+        </Routes>
       </Suspense>
     </Router>
   )
-}
-
-function MainLayout() {
-  const [events, setEvents] = useState([]); // Consistent naming convention
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchEvents = async () => {
-      setIsLoading(true);
-      setError(null);
-
-      try {
-        const response = await fetch('http://localhost:5000/api/events');
-
-        if (!response.ok) {
-          throw new Error(`HTTP error ${response.status}`);
-        }
-
-        const data = await response.json();
-        setEvents(data); // Update events state
-        
-        // Validate fetched data
-        if (!Array.isArray(data) || data.some(item => !isValidEvent(item))) {
-          throw new Error('Invalid event data received');
-        }
-      } catch (err) {
-        setError(err); // Handle errors gracefully
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchEvents();
-  }, []);// Runing effect when id or API_URL changes
-
-  const handleClick = () =>{
-    console.log('clicked')
-  }
-  return (
-    <>
-      <header className='nav-bar'>
-        <img src={logo} alt="img" className='logo'/>
-        
-        {/* <LefNav /> */}
-        <NavBar />
-      </header>
-      <body>
-        <main>
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/posts' element={<Posts />} />
-            <Route path='/events' element={<Events 
-                  isLoading={isLoading}
-                  handleClick={handleClick}
-                  events={events}/>}
-                   />
-            <Route path='/sermons' element={<Sermons />} />
-            <Route path='/about' element={<About />} />
-          </Routes>
-        </main>
-      </body>
-    </>
-  )
-}
-
-function NavBar() {
-  return (
-    <nav className='top-nav'>
-      <Link to="/admin" className='admin-panel'><FaSignInAlt /></Link>
-      <Link to="/" className="prop">Home</Link>
-      <Link to="/posts" className="prop">Posts</Link>
-      <Link to="/events" className="prop">Events</Link>
-      <Link to="/sermons" className="prop">Sermons</Link>
-      <Link to="/about" className="prop">About</Link>
-    </nav>
-  );
 }
 
 // function LefNav() {

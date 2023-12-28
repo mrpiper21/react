@@ -1,12 +1,17 @@
 import logo from '../pages/Images/logo3.png'
 import { useNavigate } from 'react-router-dom'
-import React, { useState } from 'react'
-import AdminPanel from './AdminPanel';
+import React, { useState, useContext } from 'react'
+// import UserContext from './features/usercontext';
 
 const Admin = () => {
+  // const [user, setUser] = useContext(UserContext)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate();
+
+    // const handleUserData = async () => {
+    //   setUser(user)
+    // }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -24,8 +29,8 @@ const Admin = () => {
         //if login is successful, redirect to home page
         if (response.status === 200 && data.token) {
             localStorage.setItem('token', data.token);
-            navigate('/');
-            // navigate('/admin-panel');
+            // navigate('/');
+            navigate('/admin-panel');
         } else {
             throw new Error('Attempt failed, Please try again')
         }
@@ -36,7 +41,11 @@ const Admin = () => {
           <img src={logo} alt="img" className="adminlogo" />
           <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required placeholder="Enter your email" />
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required placeholder="Enter your password" />
-          <button type='submit' className="bwit admin-btn">Login</button>
+          <button 
+                type='submit' 
+                className="bwit admin-btn" 
+                >Login
+          </button>
           <p className="add">Admins Only!</p>
         </form>
       </div>

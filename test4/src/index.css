@@ -220,6 +220,26 @@ main {
   border-radius: 0.5rem;
 }
 
+.add-event {
+  position: fixed;
+  background-color: rgb(10, 10, 123);
+  color: whitesmoke;
+  border-radius: 10rem;
+  border: none;
+  color: white;
+  padding: 1rem;
+  top: 34rem;
+  left: 68rem;
+}
+
+.trash-icon {
+  margin-top: 3rem;
+}
+
+/* .add-icon {
+  height: 500px;
+} */
+
 .cur-month {
   position: absolute;
   bottom: -3rem;
@@ -340,8 +360,9 @@ main {
 
 .event-images {
   width: 100%;
+  position: relative;
   /* max-width: 300px; */
-  max-height: 400px;
+  max-height: auto;
 }
 /* .event-text {
   padding: 0.8rem;
