@@ -29,8 +29,8 @@ const Admin = () => {
         //if login is successful, redirect to home page
         if (response.status === 200 && data.token) {
             localStorage.setItem('token', data.token);
-            // navigate('/');
-            navigate('/admin-panel');
+            navigate('/');
+            // navigate('/admin-panel');
         } else {
             throw new Error('Attempt failed, Please try again')
         }

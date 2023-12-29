@@ -3,7 +3,6 @@ import dayjs from "dayjs";
 import { Axios } from "axios";
 import { IoAddSharp, IoTrashSharp } from "react-icons/io5";
 import { useState, useEffect, useCallback, useContext } from 'react'
-import UserContext from "./features/usercontext";
 import { useNavigate } from 'react-router-dom'
 import Calendar from "./Calendar";
 import DueEvent from './utils/DueEvent'
@@ -14,6 +13,7 @@ const Events = ({ events }) => {
   const dates = generatedate();
   const date = dayjs()
   console.log(events)
+  // const [logout , setLogout] = useState(null)
   const [monthInWords, setMonthInwords] = useState(date.format('MMMM'))
   const [selectedDate, setSelectedDate] = useState(null)
 
@@ -26,8 +26,8 @@ const Events = ({ events }) => {
   const navigate = useNavigate()
 
   const handleClick = () => {
-    // setUser(user)
-    navigate('adnim-panel')
+    navigate('/admin-panel')
+
   }
 
   const token = localStorage.getItem('token')
@@ -51,7 +51,9 @@ const Events = ({ events }) => {
               <div>{selectedDate && <DueEvent date={selectedDate} events={events} />}</div>
             </div>
           </div>
-          <button className="add-event" onClick={handleClick}><IoAddSharp className="add-icon"/></button>
+          <button 
+              className="add-event" 
+              onClick={handleClick}><IoAddSharp className="add-icon"/></button>
         </UserProvider>
         </>
       );

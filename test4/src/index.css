@@ -272,16 +272,6 @@ main {
   position: inherit;
 }
 
-/* .main-pages {
-  top: 5rem;
-  margin-inline: auto;
-  position: inherit;
-} */
-
-/* .post-div {
-  top: 6rem;
-} */
-/* Style the form to have a white background and proper spacing */
 .addmin-login-form {
   background-color: white;
   padding: 1rem;
@@ -364,13 +354,7 @@ main {
   /* max-width: 300px; */
   max-height: auto;
 }
-/* .event-text {
-  padding: 0.8rem;
-  left: 0;
-  position: absolute;
-  margin-left: 0;
-} */
-/* Style the input fields with borders and padding */
+
 input {
   display: block;
   margin: 10px 0;
@@ -400,6 +384,22 @@ input {
   color: aliceblue;
   cursor: pointer;
 }
+
+.logout-btn {
+  position: sticky;
+  left: 93%;
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 0.5rem;
+}
+
+.logout-txt {
+  position: sticky;
+  left: 95%;;
+  color: white;
+}
+
 
 .event-page {
   top: 5rem;

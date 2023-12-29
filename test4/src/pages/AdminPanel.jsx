@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import Events from "./Events"
+import * as React from 'react';
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
+
 
 const AdminPanel = () => {
     const [title, setTitle] = useState('')
@@ -9,6 +12,7 @@ const AdminPanel = () => {
     const [image, setImage] = useState(null)
     const [date, setDate] = useState('')
     const [loading, setLoading] = useState(false)
+    const [success, setsuccess] = useState(false)
     const [error, setError] = useState(null)
 
     const navigate = useNavigate()
@@ -58,11 +62,14 @@ const AdminPanel = () => {
                     'Authorization': `Bearer ${token}`
                 }
             });
-            console.log('Upload successful', response.data)
+            console.log('Upload successful')
             setText('');
             setImage(null);
             setDate('');
-            navigate('/events')
+            setsuccess(true)
+            setTimeout(() => {
+                navigate('/events')
+            },1000)
         } catch (error) {
             console.error('Upload failed', error)
             setError('Upload failed');
@@ -80,7 +87,16 @@ const AdminPanel = () => {
     return (
         <form onSubmit={handleUpload} className="event-uplod-form">
             {loading && <p>Uploading...</p>}
-            {error && <p>{error}</p>}
+            {success && <Stack sx={{ width: '100%' }} spacing={2}>
+                <Alert variant="filled" severity="success">
+                    Upload Successful
+                </Alert>
+             </Stack>}
+            {error && <Stack sx={{ width: '100%' }} spacing={2}>
+                <Alert variant="filled" severity="error">
+                    An error occured
+                </Alert>
+            </Stack>}
             <div>
                 <label htmlFor="imageUpload">Choose an image</label>
                 <input type="date" value={date} onChange={handleDateChange}/>

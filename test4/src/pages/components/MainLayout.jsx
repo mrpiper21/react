@@ -8,7 +8,7 @@ const Posts = lazy(() => import('../Posts'));
 const Events = lazy(() => import('../Events'));
 const Sermons = lazy(() => import('../Sermons'));
 
-export default function MainLayout() {
+export default function MainLayout({ user }) {
     // const [user, setUser] = useContext(UserContext)
     const [events, setEvents] = useState([]); // Consistent naming convention
     const [isLoading, setIsLoading] = useState(false);
@@ -61,7 +61,7 @@ export default function MainLayout() {
           <img src={logo} alt="img" className='logo'/>
           
           {/* <LefNav /> */}
-          <NavBar />
+          <NavBar user={user} />
         </header>
         <body>
           <main>

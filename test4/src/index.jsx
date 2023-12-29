@@ -14,11 +14,11 @@ ReactDOM.render(<App />, document.getElementById('root'));
 function App() {
   const [user, setUser] = useState(null)
 
-  //Loadi usrdata from localStorage when app starts
   useEffect(() => {
-    const savedUser = localStorage.getItem('user');
+    const savedUser = localStorage.getItem('token');
     if (savedUser) {
-      setUser(JSON.parse(savedUser))
+      setUser(savedUser)
+      console.log(user)
     }
   }, [])
 
@@ -36,18 +36,11 @@ function App() {
         <Routes>
             <Route path="/admin" element={<Admin />} />
             <Route path="admin-panel" element={<AdminPanel />} />
-            <Route path="/*" element={<MainLayout />} />
+            <Route path="/*" element={<MainLayout user={user} />} />
         </Routes>
       </Suspense>
     </Router>
   )
 }
 
-// function LefNav() {
-//   return (
-//     <div className='left-nav'>
-//       <img src={logo2} alt="img" className='logo2'/>
-//     </div>
-//   )
-// }
 export default App;
