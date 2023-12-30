@@ -1,6 +1,5 @@
 import { FaSignInAlt, FaSignOutAlt } from 'react-icons/fa'
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function NavBar({ user }) {
     const navigate = useNavigate()
@@ -11,7 +10,7 @@ export default function NavBar({ user }) {
     
           if (data) {
             localStorage.removeItem('token', data.token)
-            navigate('/', 0)
+            navigate('/')
           }
         } catch (err) {
           throw new Error(err);
