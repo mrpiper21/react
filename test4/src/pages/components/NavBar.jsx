@@ -1,20 +1,24 @@
 import { FaSignInAlt, FaSignOutAlt } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom';
+import React from 'react';
 
-export default function NavBar({ user }) {
+const NavBar = React.memo(({ user }) => {
     const navigate = useNavigate()
     const handleLogout = async() => {
-        try {
-          const response = await fetch('http://localhost:5000/api/user/login')
-          const data = response.json()
-    
-          if (data) {
-            localStorage.removeItem('token', data.token)
-            navigate('/')
-          }
-        } catch (err) {
-          throw new Error(err);
+        if (user) {
+            try {
+                const response = await fetch('http://localhost:5000/api/user/login')
+                const data = response.json()
+          
+                if (data) {
+                  localStorage.removeItem('token', data.token)
+                  navigate('/')
+                }
+            } catch (err) {
+                throw new Error(err);
+            }
         }
+        
     }
     if (user) {
         return (
@@ -39,5 +43,6 @@ export default function NavBar({ user }) {
             </nav>
           );
     }
-    
-}
+})
+
+export default NavBar

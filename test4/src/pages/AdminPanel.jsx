@@ -49,7 +49,6 @@ const AdminPanel = () => {
         formData.append('image', image)
         formData.append('text', text)
 
-        // ... rest of your code ...
         // Get the token from local storage
         const token = localStorage.getItem('token')
 
@@ -67,9 +66,9 @@ const AdminPanel = () => {
             setImage(null);
             setDate('');
             setsuccess(true)
-            setTimeout(() => {
-                navigate('/events')
-            },1000)
+            // setTimeout(() => {
+            //     navigate('/events')
+            // },1000)
         } catch (error) {
             console.error('Upload failed', error)
             setError('Upload failed');

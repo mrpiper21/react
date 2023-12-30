@@ -52,7 +52,6 @@ const deleteEvent = async(req, res) => {
     if (!event) {
       res.json({ message: 'event not available'}).status(400)
     } else {
-      localStorage.removeItem(_id);
       return res.json(event);
     }
   } catch (err) {

@@ -69,7 +69,7 @@ export default function MainLayout({ user }) {
               <Route path='/' element={<Home />} />
               <Route path='/posts' element={<Posts />} />
               <Route path='/events' element={<Events 
-                    // user={user}
+                    user={user}
                     isLoading={isLoading}
                     handleClick={handleClick}
                     events={events}/>}
