@@ -3,6 +3,7 @@ import dayjs from "dayjs";
 import { Axios } from "axios";
 import { IoAddSharp, IoTrashSharp } from "react-icons/io5";
 import { useState, useEffect, useCallback, useContext } from 'react'
+import UserContext from "./features/usercontext";
 import { useNavigate } from 'react-router-dom'
 import Calendar from "./Calendar";
 import DueEvent from './utils/DueEvent'
@@ -10,7 +11,7 @@ import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
 
 const Events = ({ events, user }) => {
-  // const [user, setUser] = useContext(UserContext)
+  const { user, setUser } = useContext(UserContext)
   const navigate = useNavigate()
   const dates = generatedate();
   const date = dayjs()
@@ -72,11 +73,11 @@ const Events = ({ events, user }) => {
               <span>{event.date}</span>
               <p className='event-text'>{event.text}</p>
               {event.image && <img src={`http://localhost:5000/images/${event.image}`} alt="Event" className='event-images'/>}
-              <IoTrashSharp 
+              <button 
                 className="trash-icon"
                 onClick={() => !isDeleting && handleDelete(event._id)}
                 disabled={isDeleting}
-              />
+              >Delete</button>
             </div>
             ))}
               {deleteEvent ?

@@ -2,14 +2,15 @@ import logo from '../Images/Logo4.jpg'
 import NavBar from "./NavBar";
 import { Routes, Route } from 'react-router-dom';
 import { lazy, useState, useEffect, useContext } from 'react';
+import UserContext from '../features/usercontext';
 const Home = lazy(() => import('../Home'));
 const About = lazy(() => import('../About'));
 const Posts = lazy(() => import('../Posts'));
 const Events = lazy(() => import('../Events'));
 const Sermons = lazy(() => import('../Sermons'));
 
-export default function MainLayout({ user }) {
-    // const [user, setUser] = useContext(UserContext)
+export default function MainLayout() {
+    const { user, setUser } = useContext(UserContext)
     const [events, setEvents] = useState([]); // Consistent naming convention
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -55,31 +56,60 @@ export default function MainLayout({ user }) {
     const handleClick = () =>{
       console.log('clicked')
     }
-    return (
-      <>
-        <header className='nav-bar'>
-          <img src={logo} alt="img" className='logo'/>
-          
-          {/* <LefNav /> */}
-          <NavBar user={user} />
-        </header>
-        <body>
-          <main>
-            <Routes>
-              <Route path='/' element={<Home />} />
-              <Route path='/posts' element={<Posts />} />
-              <Route path='/events' element={<Events 
-                    user={user}
-                    isLoading={isLoading}
-                    handleClick={handleClick}
-                    events={events}/>}
-                     />
-              <Route path='/sermons' element={<Sermons />} />
-              <Route path='/about' element={<About />} />
-            </Routes>
-          </main>
-        </body>
-      </>
-    )
+
+    if (user) {
+      return (
+        <>
+          <header className='nav-bar'>
+            <img src={logo} alt="img" className='logo'/>
+            
+            {/* <LefNav /> */}
+            <NavBar />
+          </header>
+          <body>
+            <main>
+              <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path='/posts' element={<Posts />} />
+                <Route path='/events' element={<Events
+                      isLoading={isLoading}
+                      handleClick={handleClick}
+                      events={events}/>}
+                       />
+                <Route path='/sermons' element={<Sermons />} />
+                <Route path='/about' element={<About />} />
+              </Routes>
+            </main>
+          </body>
+        </>
+      )
+    } else {
+      return (
+        <>
+          <header className='nav-bar'>
+            <img src={logo} alt="img" className='logo'/>
+            
+            {/* <LefNav /> */}
+            <NavBar/>
+          </header>
+          <body>
+            <main>
+              <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path='/posts' element={<Posts />} />
+                <Route path='/events' element={<Events 
+                      isLoading={isLoading}
+                      handleClick={handleClick}
+                      events={events}/>}
+                       />
+                <Route path='/sermons' element={<Sermons />} />
+                <Route path='/about' element={<About />} />
+              </Routes>
+            </main>
+          </body>
+        </>
+      )
+    }
+
   }
   

@@ -1,9 +1,9 @@
 import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom';
-import { UserProvider } from './pages/features/usercontext'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
 import { useState, useEffect } from 'react'
+import UserContext from './pages/features/usercontext';
 import MainLayout from './pages/components/MainLayout'
 
 const Admin = lazy(() => import('./pages/Admin'));
@@ -15,7 +15,6 @@ function App() {
   const [user, setUser] = useState(null)
 
   // const token = localStorage.getItem('token')
-
   useEffect(() => {
     const savedUser = localStorage.getItem('token');
     if (savedUser) {
@@ -33,17 +32,17 @@ function App() {
     }
   }, [user])
   return (
-    <UserProvider>
+    <UserContext.Provider value={{ user, setUser}}>
       <Router>
         <Suspense fallback={<p>Loading...</p>}>
           <Routes>
-              <Route path="/admin" element={<Admin />} />
-              <Route path="admin-panel" element={<AdminPanel />} />
-              <Route path="/*" element={<MainLayout user={user} />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="admin-panel" element={<AdminPanel />} />
+            <Route path="/*" element={<MainLayout />} />
           </Routes>
         </Suspense>
       </Router>
-    </UserProvider>
+    </UserContext.Provider>
   )
 }
 

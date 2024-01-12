@@ -233,7 +233,21 @@ main {
 }
 
 .trash-icon {
-  margin-top: 3rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.3rem;
+  border: solid 0.1rem black;
+  border-radius: 0.5rem;
+  /* border-style: none;  */
+  background-color: #cccaca;
+  left: 17rem;
+  position: inherit;
+}
+
+.trash-icon:focus {
+  background: black;
+  color: white;
+  cursor: pointer;
 }
 
 /* .add-icon {

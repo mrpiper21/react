@@ -1,8 +1,10 @@
 import { FaSignInAlt, FaSignOutAlt } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom';
-import React from 'react';
+import React, { useContext} from 'react';
+import UserContext from '../features/usercontext';
 
-const NavBar = React.memo(({ user }) => {
+const NavBar = React.memo(( ) => {
+    const { user, setUser } = useContext(UserContext)
     const navigate = useNavigate()
     const handleLogout = async() => {
         if (user) {
